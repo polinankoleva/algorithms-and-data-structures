@@ -4,7 +4,7 @@
  * Polina Koleva, 02.08.2016.
  */
 
-import com.data.structutes.simple.stack.StackArray;
+import com.data.structures.simple.stack.StackArray;
 
 /**
  * Main class which is used for testing the implemented data structures.
