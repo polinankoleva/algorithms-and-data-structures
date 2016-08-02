@@ -102,3 +102,9 @@ RemoteSystemsTempFiles/.project
 .metadata/.plugins/org.eclipse.wst.jsdt.core/libraries/system.js
 
 .metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+
+.metadata/.plugins/org.eclipse.wst.jsdt.core/externalLibsTimeStamps
+
+.metadata/.plugins/org.eclipse.wst.jsdt.core/variablesAndContainers.dat
+
+BasicDataStructures/bin/com/data/structutes/simple/queue/MainExecutionPoint.class
