@@ -1,5 +1,7 @@
 package com.data.structures;
 
+import com.data.structures.simple.deque.StaticDeque;
+
 /**
  * This code is produced with learning purposes.
  * 
@@ -22,6 +24,46 @@ public class MainExecutionPoint {
 		// testStaticStack();
 		// testStaticQueue();
 		// testTwoStacks();
+		// testDeque();
+	}
+
+	public static void testDeque() {
+		StaticDeque deque = new StaticDeque(5);
+
+		System.out.println("Test undeflow...");
+		deque.dedequeAtEnd();
+		deque.dedequeAtFront();
+
+		deque.endequeAtFront(1);
+		deque.endequeAtFront(2);
+		deque.endequeAtFront(3);
+		deque.endequeAtEnd(4);
+		deque.endequeAtEnd(5);
+
+		// test overflow
+		System.out.println("Test overflow...");
+		deque.endequeAtEnd(1);
+		deque.endequeAtFront(2);
+
+		System.out.println("Dequeue at front:" + deque.dedequeAtFront() + ". Expected result: 3");
+		System.out.println("Dequeue at end:" + deque.dedequeAtEnd() + ". Expected result: 5");
+		System.out.println("Dequeue at end:" + deque.dedequeAtEnd() + ". Expected result: 4");
+		System.out.println("Dequeue at front:" + deque.dedequeAtFront() + ". Expected result: 2");
+		System.out.println("Dequeue at front:" + deque.dedequeAtFront() + ". Expected result: 1");
+
+		// System.out.println("Test undeflow...");
+		deque.dedequeAtEnd();
+		deque.dedequeAtFront();
+		
+		deque.endequeAtEnd(1);
+		System.out.println("Deque at end: " + deque.dedequeAtEnd() + ". Expected result: 1");
+		deque.endequeAtEnd(2);
+		System.out.println("Deque at front: " + deque.dedequeAtFront() + ". Expected result: 2");
+		deque.endequeAtFront(3);
+		System.out.println("Deque at front: " + deque.dedequeAtFront() + ". Expected result: 3");
+		deque.endequeAtFront(4);
+		System.out.println("Deque at end: " + deque.dedequeAtEnd() + ". Expected result: 4");
+
 	}
 
 	public static void testTwoStacks() {
