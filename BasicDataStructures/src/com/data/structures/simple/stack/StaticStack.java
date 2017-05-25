@@ -11,7 +11,7 @@ package com.data.structures.simple.stack;
  * @author Polina Koleva
  *
  */
-public class StackArray {
+public class StaticStack {
 
 	// an index of the element which is added to the stack most recently
 	int topIndex;
@@ -21,7 +21,7 @@ public class StackArray {
 	/**
 	 * Constructor. Set the static size of a stack.
 	 */
-	public StackArray(int stackSize) {
+	public StaticStack(int stackSize) {
 		this.stack = new int[stackSize];
 		// when topIndex is -1 - it means no elements in the stack
 		topIndex = -1;
@@ -49,7 +49,7 @@ public class StackArray {
 	 */
 	public int pop() {
 		// if the stack is empty - some meaningless result
-		int poppedElement = -10000000;
+		int poppedElement = Integer.MIN_VALUE;
 		if (isEmpty()) {
 			System.out.println("Underflow...");
 		} else {
