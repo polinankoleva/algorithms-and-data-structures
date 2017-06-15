@@ -10,6 +10,7 @@ import com.data.structures.simple.deque.StaticDeque;
 
 import com.data.structures.simple.queue.StaticQueue;
 import com.data.structures.simple.stack.StaticStack;
+import com.data.structures.tree.bst.BinarySearchTree;
 import com.data.structures.two.stacks.TwoStacks;
 
 /**
@@ -25,8 +26,29 @@ public class MainExecutionPoint {
 		// testStaticQueue();
 		// testTwoStacks();
 		// testDeque();
+		testBinarySearchTree();
 	}
 
+	public static void testBinarySearchTree() {
+		BinarySearchTree bst = new BinarySearchTree();
+		bst.insert(40);
+		bst.insert(25);
+		bst.insert(78);
+		bst.insert(10);
+		bst.insert(32);
+		
+		System.out.println("Max:" + bst.findMaximumKey());
+		System.out.println("Min:" + bst.findMinimumKey());
+		
+		bst.traverseInorder(bst.root);
+		System.out.println();
+		bst.traversePreorder(bst.root);
+		System.out.println();
+		bst.traversePostorder(bst.root);
+
+	}
+
+	
 	public static void testDeque() {
 		StaticDeque deque = new StaticDeque(5);
 
