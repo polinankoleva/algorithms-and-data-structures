@@ -3,7 +3,7 @@
  * 
  * Polina Koleva, 02.08.2016
  */
-package com.data.structures.simple.deque;
+package com.data.structures.simple;
 
 /**
  * Static deque implementation. This structure is similar to queue with one

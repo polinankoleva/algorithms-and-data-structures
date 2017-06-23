@@ -3,7 +3,7 @@
  * 
  * Polina Koleva, 02.08.2016
  */
-package com.data.structures.simple.stack;
+package com.data.structures.simple;
 
 /**
  * Static implementation of a stack using an array.
