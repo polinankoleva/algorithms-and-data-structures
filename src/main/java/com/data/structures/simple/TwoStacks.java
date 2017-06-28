@@ -3,7 +3,7 @@
  * 
  * Polina Koleva, 02.08.2016
  */
-package com.data.structures.two.stacks;
+package com.data.structures.simple;
 
 /**
  * Class that represents implementation of two stacks storing their element in
