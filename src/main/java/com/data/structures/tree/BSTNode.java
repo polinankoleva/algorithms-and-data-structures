@@ -1,4 +1,4 @@
-package com.data.structures.tree.bst;
+package com.data.structures.tree;
 
 //TODO add comments
 public class BSTNode {

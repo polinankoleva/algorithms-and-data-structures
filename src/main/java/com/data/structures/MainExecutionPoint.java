@@ -1,17 +1,15 @@
 package com.data.structures;
-
-import com.data.structures.simple.deque.StaticDeque;
-
 /**
  * This code is produced with learning purposes.
  * 
  * Polina Koleva, 02.08.2016.
  */
 
-import com.data.structures.simple.queue.StaticQueue;
-import com.data.structures.simple.stack.StaticStack;
-import com.data.structures.tree.bst.BinarySearchTree;
-import com.data.structures.two.stacks.TwoStacks;
+import com.data.structures.simple.StaticDeque;
+import com.data.structures.simple.StaticQueue;
+import com.data.structures.simple.StaticStack;
+import com.data.structures.simple.TwoStacks;
+import com.data.structures.tree.BinarySearchTree;
 
 /**
  * Main class which is used for testing the implemented data structures.
@@ -36,10 +34,10 @@ public class MainExecutionPoint {
 		bst.insert(78);
 		bst.insert(10);
 		bst.insert(32);
-		
+
 		System.out.println("Max:" + bst.findMaximumKey());
 		System.out.println("Min:" + bst.findMinimumKey());
-		
+
 		bst.traverseInorder(bst.root);
 		System.out.println();
 		bst.traversePreorder(bst.root);
@@ -48,7 +46,6 @@ public class MainExecutionPoint {
 
 	}
 
-	
 	public static void testDeque() {
 		StaticDeque deque = new StaticDeque(5);
 
@@ -76,7 +73,7 @@ public class MainExecutionPoint {
 		// System.out.println("Test undeflow...");
 		deque.dedequeAtEnd();
 		deque.dedequeAtFront();
-		
+
 		deque.endequeAtEnd(1);
 		System.out.println("Deque at end: " + deque.dedequeAtEnd() + ". Expected result: 1");
 		deque.endequeAtEnd(2);
