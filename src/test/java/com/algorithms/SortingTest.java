@@ -16,8 +16,6 @@ public class SortingTest {
 
 	@Test
 	public void vanillaInsertionSortTest() {
-		int test = 1/2;
-		System.out.println(test);
 		int[] arr = { 1, 7, 3, 5 };
 		int[] expArr = { 1, 3, 5, 7 };
 		Assert.assertArrayEquals(expArr, vanillaInsertionSort(arr));

@@ -136,3 +136,4 @@ BasicDataStructures/bin/com/data/structutes/simple/queue/MainExecutionPoint.clas
 *.class
 
 .metadata/.plugins/org.eclipse.jdt.core/indexNamesMap.txt
+/target/

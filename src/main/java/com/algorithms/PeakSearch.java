@@ -3,7 +3,7 @@ package com.algorithms;
 import java.util.Arrays;
 
 /**
- * Util class for different versions for peak search algorithm.
+ * Util class for different versions of peak search algorithm.
  * 
  * @author Polina Koleva
  *

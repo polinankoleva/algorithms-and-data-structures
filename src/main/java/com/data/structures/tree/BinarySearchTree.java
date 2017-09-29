@@ -2,7 +2,6 @@ package com.data.structures.tree;
 
 import java.util.List;
 
-import sun.nio.fs.BsdFileSystemProvider;
 
 public class BinarySearchTree {
 
