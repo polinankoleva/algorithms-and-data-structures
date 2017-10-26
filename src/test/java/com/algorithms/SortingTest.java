@@ -7,6 +7,7 @@ import static com.algorithms.Sorting.merge;
 import static com.algorithms.Sorting.mergeSort;
 import static com.algorithms.Sorting.bubbleSort;
 import static com.algorithms.Sorting.quickSort;
+import static com.algorithms.Sorting.selectionSort;
 
 /**
  * Test cases for {@link Sorting} class functionality.
@@ -149,6 +150,35 @@ public class SortingTest {
 		arr = new int[] { 1, 3, 1 };
 		expArr = new int[] { 1, 1, 3 };
 		quickSort(arr, 0 , arr.length - 1);
+		Assert.assertArrayEquals(expArr, arr);
+	}
+	
+	
+	@Test
+	public void selectionSortTest() {
+		int[] arr = { 1, 7, 3, 5 };
+		int[] expArr = { 1, 3, 5, 7 };
+		selectionSort(arr);
+		Assert.assertArrayEquals(expArr, arr);
+
+		arr = new int[] { 2, 3, 4, 5, 6 };
+		expArr = new int[] { 2, 3, 4, 5, 6 };
+		selectionSort(arr);
+		Assert.assertArrayEquals(expArr, arr);
+
+		arr = new int[] { 6, 5, 4, 3, 2, 1 };
+		expArr = new int[] { 1, 2, 3, 4, 5, 6 };
+		selectionSort(arr);
+		Assert.assertArrayEquals(expArr, arr);
+
+		arr = new int[] { 2, 1 };
+		expArr = new int[] { 1, 2 };
+		selectionSort(arr);
+		Assert.assertArrayEquals(expArr, arr);
+
+		arr = new int[] { 1, 3, 1 };
+		expArr = new int[] { 1, 1, 3 };
+		selectionSort(arr);
 		Assert.assertArrayEquals(expArr, arr);
 	}
 }

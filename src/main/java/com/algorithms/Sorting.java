@@ -162,8 +162,36 @@ public class Sorting {
 		return null;
 	}
 
-	// TODO implement
-	public static int[] selectionSort() {
-		return null;
+	// search for min element and set it on the first position in the unsorted
+	// array
+	// O(n^2) worst and best case
+	public static void selectionSort(int[] arr) {
+		// first index of unsorted array
+		int u = 0;
+		while (u < arr.length - 1) {
+			int minIndex = findMinIndex(arr, u);
+			swap(u, minIndex, arr);
+			u++;
+		}
+	}
+
+	/**
+	 * Search for a min element in an array starting from a particular index.
+	 * When a min element found, returns its index.
+	 * 
+	 * @param arr array in which a min element is searched
+	 * @param s start index for min element searching
+	 * @return index of a min element
+	 */
+	private static int findMinIndex(int[] arr, int s) {
+		int minIndex = 0;
+		int min = Integer.MAX_VALUE;
+		for (int i = s; i < arr.length; i++) {
+			if (arr[i] <= min) {
+				min = arr[i];
+				minIndex = i;
+			}
+		}
+		return minIndex;
 	}
 }
