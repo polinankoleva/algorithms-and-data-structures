@@ -14,7 +14,7 @@ package com.algorithms;
 public class Sorting {
 
 	// Time complexity O(n^2)
-	public static int[] vanillaInsertionSort(int arr[]) {
+	public static void vanillaInsertionSort(int arr[]) {
 		// skip the first element
 		for (int i = 1; i < arr.length; i++) {
 			int d = i;
@@ -25,14 +25,46 @@ public class Sorting {
 				d--;
 			}
 		}
+	}
+
+	// Time complexity O(n^2)
+	// insertion sort with binary search
+	// use binary search to find the proper location to insert the selected item
+	public static int[] bsInsertionSort(int arr[]) {
+		// skip the first element
+		for (int i = 1; i < arr.length; i++) {
+			int d = i;
+			int searchedIndex =  findInsertPositionBS(arr, 0 , d-1, arr[d]) ;
+			while (d > searchedIndex) {
+				swap(d, d-1, arr);
+				d--;
+			}
+		}
 		return arr;
 	}
 
-	// insertion sort with binary search
-	public static int[] bsInsertionSort(int arr[]) {
-		return null;
+	public static int findInsertPositionBS(int[] array, int start, int end, int number) {
+		if (start < end) {
+			int middle = (start + end) / 2;
+			if(array[middle] == number){
+				return middle + 1;
+			}
+			if (number < array[middle]) {
+				return findInsertPositionBS(array, start, middle - 1, number);
+			} else if (number > array[middle]) {
+				return findInsertPositionBS(array, middle + 1, end, number);
+			} 
+		} else if(start >= end){
+			if(number >= array[start]){
+				return start + 1; 
+			} else {
+				return start;
+			}
+		}
+		return 0;
 	}
-
+	
+	
 	// divide and conquer
 	public static int[] mergeSort(int arr[], int start, int end) {
 		// base of the recursion
@@ -157,7 +189,7 @@ public class Sorting {
 		}
 	}
 
-	// TODO implement
+	// TODO implement when heap is implemented
 	public static int[] heapSort() {
 		return null;
 	}
@@ -179,8 +211,10 @@ public class Sorting {
 	 * Search for a min element in an array starting from a particular index.
 	 * When a min element found, returns its index.
 	 * 
-	 * @param arr array in which a min element is searched
-	 * @param s start index for min element searching
+	 * @param arr
+	 *            array in which a min element is searched
+	 * @param s
+	 *            start index for min element searching
 	 * @return index of a min element
 	 */
 	private static int findMinIndex(int[] arr, int s) {

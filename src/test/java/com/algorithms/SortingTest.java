@@ -8,6 +8,8 @@ import static com.algorithms.Sorting.mergeSort;
 import static com.algorithms.Sorting.bubbleSort;
 import static com.algorithms.Sorting.quickSort;
 import static com.algorithms.Sorting.selectionSort;
+import static com.algorithms.Sorting.findInsertPositionBS;
+import static com.algorithms.Sorting.bsInsertionSort;
 
 /**
  * Test cases for {@link Sorting} class functionality.
@@ -21,23 +23,28 @@ public class SortingTest {
 	public void vanillaInsertionSortTest() {
 		int[] arr = { 1, 7, 3, 5 };
 		int[] expArr = { 1, 3, 5, 7 };
-		Assert.assertArrayEquals(expArr, vanillaInsertionSort(arr));
+		vanillaInsertionSort(arr);
+		Assert.assertArrayEquals(expArr, arr);
 
 		arr = new int[] { 2, 3, 4, 5, 6 };
 		expArr = new int[] { 2, 3, 4, 5, 6 };
-		Assert.assertArrayEquals(expArr, vanillaInsertionSort(arr));
+		vanillaInsertionSort(arr);
+		Assert.assertArrayEquals(expArr, arr);
 
 		arr = new int[] { 6, 5, 4, 3, 2, 1 };
 		expArr = new int[] { 1, 2, 3, 4, 5, 6 };
-		Assert.assertArrayEquals(expArr, vanillaInsertionSort(arr));
+		vanillaInsertionSort(arr);
+		Assert.assertArrayEquals(expArr, arr);
 
 		arr = new int[] { 2, 1 };
 		expArr = new int[] { 1, 2 };
-		Assert.assertArrayEquals(expArr, vanillaInsertionSort(arr));
+		vanillaInsertionSort(arr);
+		Assert.assertArrayEquals(expArr, arr);
 
 		arr = new int[] { 1, 3, 1 };
 		expArr = new int[] { 1, 1, 3 };
-		Assert.assertArrayEquals(expArr, vanillaInsertionSort(arr));
+		vanillaInsertionSort(arr);
+		Assert.assertArrayEquals(expArr, arr);
 	}
 
 	@Test
@@ -181,4 +188,50 @@ public class SortingTest {
 		selectionSort(arr);
 		Assert.assertArrayEquals(expArr, arr);
 	}
+	
+	@Test
+	public void findInsertPositionBSTest() {
+		int[] arr = { 1, 3, 5, 7 };
+		Assert.assertEquals(1 , findInsertPositionBS(arr, 0, arr.length - 1, 1));
+		Assert.assertEquals(2 , findInsertPositionBS(arr, 0, arr.length - 1, 4));
+		Assert.assertEquals(1 , findInsertPositionBS(arr, 0, arr.length - 1, 2));
+		Assert.assertEquals(4 , findInsertPositionBS(arr, 0, arr.length - 1, 8));	
+		
+		arr = new int[] { 1, 1, 3 };
+		Assert.assertEquals(2 , findInsertPositionBS(arr, 0, arr.length - 1, 1));
+		Assert.assertEquals(3 , findInsertPositionBS(arr, 0, arr.length - 1, 3));
+		Assert.assertEquals(3 , findInsertPositionBS(arr, 0, arr.length - 1, 10));
+		
+		arr = new int[] { 2, 3, 3 };
+		Assert.assertEquals(0 , findInsertPositionBS(arr, 0, arr.length - 1, 1));
+	}
+	
+	@Test
+	public void bsInsertionSortTest() {
+		int[] arr = { 1, 7, 3, 5 };
+		int[] expArr = { 1, 3, 5, 7 };
+		bsInsertionSort(arr);
+		Assert.assertArrayEquals(expArr, arr);
+
+		arr = new int[] { 2, 3, 4, 5, 6 };
+		expArr = new int[] { 2, 3, 4, 5, 6 };
+		bsInsertionSort(arr);
+		Assert.assertArrayEquals(expArr, arr);
+
+		arr = new int[] { 6, 5, 4, 3, 2, 1 };
+		expArr = new int[] { 1, 2, 3, 4, 5, 6 };
+		bsInsertionSort(arr);
+		Assert.assertArrayEquals(expArr, arr);
+
+		arr = new int[] { 2, 1 };
+		expArr = new int[] { 1, 2 };
+		bsInsertionSort(arr);
+		Assert.assertArrayEquals(expArr, arr);
+
+		arr = new int[] { 1, 3, 1 };
+		expArr = new int[] { 1, 1, 3 };
+		bsInsertionSort(arr);
+		Assert.assertArrayEquals(expArr, arr);
+	}
+	
 }

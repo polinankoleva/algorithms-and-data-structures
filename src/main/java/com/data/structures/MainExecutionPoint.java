@@ -27,6 +27,7 @@ public class MainExecutionPoint {
 		testBinarySearchTree();
 	}
 
+	// TODO move to tests
 	public static void testBinarySearchTree() {
 		BinarySearchTree bst = new BinarySearchTree();
 		bst.insert(40);
