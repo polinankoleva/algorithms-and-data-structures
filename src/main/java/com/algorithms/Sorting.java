@@ -28,12 +28,12 @@ public class Sorting {
 		return arr;
 	}
 
-	//insertion sort with binary search
-	public static int[] bsInsertionSort(int arr[]){
+	// insertion sort with binary search
+	public static int[] bsInsertionSort(int arr[]) {
 		return null;
 	}
 
-	// divide and conquer 
+	// divide and conquer
 	public static int[] mergeSort(int arr[], int start, int end) {
 		// base of the recursion
 		if (start == end) {
@@ -79,25 +79,91 @@ public class Sorting {
 		}
 		return result;
 	}
-	
+
 	// best case O(n) when array already sorted
 	// worst case O(n^2)
-	public static int[] bubbleSort(){
+	public static int[] bubbleSort(int[] arr) {
+		boolean hasSwaps = true;
+		while (hasSwaps) {
+			hasSwaps = false;
+			for (int i = 0; i < arr.length - 1; i++) {
+				if (arr[i] > arr[i + 1]) {
+					swap(i, i + 1, arr);
+					hasSwaps = true;
+				}
+			}
+		}
+		return arr;
+	}
+
+	/**
+	 * Swap two elements of an array by their indexes.
+	 * 
+	 * @param i
+	 *            index of an element
+	 * @param j
+	 *            index of an element
+	 * @param arr
+	 *            array in which two elements will be swapped
+	 */
+	private static void swap(int i, int j, int[] arr) {
+		int temp = arr[j];
+		arr[j] = arr[i];
+		arr[i] = temp;
+	}
+
+	/**
+	 * QuickSort implementation.
+	 * 
+	 * - divide-and-conquer algorithm, similar to merge sort - all the work
+	 * happens in the divide step, almost nothing in the combine step - worst
+	 * case O(n^2), average case O(nlogn) - works in place - in practice
+	 * outperforms mergeSort and significantly outperforms insertionSort and
+	 * selectionSort
+	 * 
+	 * @return sorted array
+	 */
+	public static void quickSort(int[] arr, int s, int e) {
+		// pivot index
+		int r = e;
+		// choose a rightmost element as pivot
+		int pivot = arr[r];
+		// j - index for unknown elements (not yet compared with the pivot
+		// elements)
+		// q - index which is like a boundary for these two arrays [elements <
+		// pivot] and [elements >= pivot]
+		int q, j;
+		q = j = s;
+		while (j < r) {
+			if (arr[j] < pivot) {
+				swap(j, q, arr);
+				q++;
+				j++;
+			} else if (arr[j] >= pivot) {
+				j++;
+			}
+		}
+		// move the pivot to its proper place after all elements have been
+		// already compared to it
+		swap(r, q, arr);
+		r = q;
+		// sort right array
+		if (s < r - 1) {
+			quickSort(arr, s, r - 1);
+		}
+		// sort left array
+		if (r + 1 < e) {
+			quickSort(arr, r + 1, e);
+		}
+	}
+
+	// TODO implement
+	public static int[] heapSort() {
 		return null;
 	}
-	
-	//TODO implement
-	public static int[] quicksort(){
-		return null;
-	}
-	
-	//TODO implement
-	public static int[] heapsort(){
-		return null;
-	}
-	
-	//TODO implement
-	public static int[] selectionsort(){
+
+	// TODO implement
+	public static int[] selectionSort() {
 		return null;
 	}
 }
