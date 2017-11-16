@@ -2,7 +2,7 @@ package com.data.structures.tree;
 
 import java.util.List;
 
-
+//TODO add comments
 public class BinarySearchTree {
 
 	public BSTNode root;

@@ -1,7 +1,10 @@
-package com.algorithms;
+package com.algorithms.data.structures.tree;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.algorithms.BinarySearch;
+
 import static com.algorithms.BinarySearch.bs;
 
 /**
