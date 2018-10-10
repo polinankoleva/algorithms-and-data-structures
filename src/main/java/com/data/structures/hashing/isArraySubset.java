@@ -17,7 +17,7 @@ package com.data.structures.hashing;
 public class isArraySubset {
 
 	public static boolean isSubset(int[] arr1, int[] arr2) {
-		
+		return true;
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
