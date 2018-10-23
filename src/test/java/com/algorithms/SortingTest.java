@@ -10,6 +10,8 @@ import static com.algorithms.Sorting.quickSort;
 import static com.algorithms.Sorting.selectionSort;
 import static com.algorithms.Sorting.findInsertPositionBS;
 import static com.algorithms.Sorting.bsInsertionSort;
+import static com.algorithms.Sorting.countingSort;
+
 
 /**
  * Test cases for {@link Sorting} class functionality.
@@ -232,6 +234,34 @@ public class SortingTest {
 		expArr = new int[] { 1, 1, 3 };
 		bsInsertionSort(arr);
 		Assert.assertArrayEquals(expArr, arr);
+	}
+	
+	@Test
+	public void countingSortTest() {
+		int[] arr = { 1, 7, 3, 5 };
+		int[] expArr = { 1, 3, 5, 7 };
+		int[] result = countingSort(arr, 9);
+		Assert.assertArrayEquals(expArr, result);
+
+		arr = new int[] { 2, 3, 4, 5, 6 };
+		expArr = new int[] { 2, 3, 4, 5, 6 };
+		result = countingSort(arr, 9);
+		Assert.assertArrayEquals(expArr, result);
+
+		arr = new int[] { 6, 5, 4, 3, 2, 1 };
+		expArr = new int[] { 1, 2, 3, 4, 5, 6 };
+		result = countingSort(arr, 9);
+		Assert.assertArrayEquals(expArr, result);
+
+		arr = new int[] { 2, 1 };
+		expArr = new int[] { 1, 2 };
+		result = countingSort(arr, 3);
+		Assert.assertArrayEquals(expArr, result);
+
+		arr = new int[] { 1, 3, 1 };
+		expArr = new int[] { 1, 1, 3 };
+		result = countingSort(arr, 4);
+		Assert.assertArrayEquals(expArr, result);
 	}
 	
 }
