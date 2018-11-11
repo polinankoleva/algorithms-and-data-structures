@@ -246,9 +246,27 @@ public class Sorting {
 		return result;
 	}
 
-	// Counting sort is a sorting technique based on keys between a specific range.
-	// It works by counting the number of objects having distinct key values (kind
-	// of hashing).
+	public static int[] countingSort(int arr[], int range, int sortNumber) {
+		int[] countArray = new int[range + 1];
+		// count occurrence of each number
+		for (int i = 0; i < arr.length; i++) {
+			countArray[arr[i]] = countArray[arr[i]] + 1;
+		}
+		// calculate position of each number in the output array
+		for (int i = 1; i < countArray.length; i++) {
+			countArray[i] = countArray[i - 1] + countArray[i];
+		}
+
+		// output
+		int[] result = new int[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			int position = countArray[arr[i]];
+			result[position - 1] = arr[i];
+			countArray[arr[i]]--;
+		}
+		return result;
+	}
+
 	public static int[] radixSort(int arr[], int range) {
 		// output
 		int[] result = new int[arr.length];
