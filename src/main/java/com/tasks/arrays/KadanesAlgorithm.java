@@ -1,4 +1,4 @@
-package com.tasks;
+package com.tasks.arrays;
 
 /**
  * Find the contiguous subarray within a one-dimensional array of
