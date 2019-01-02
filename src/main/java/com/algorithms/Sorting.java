@@ -34,9 +34,9 @@ public class Sorting {
 		// skip the first element
 		for (int i = 1; i < arr.length; i++) {
 			int d = i;
-			int searchedIndex =  findInsertPositionBS(arr, 0 , d-1, arr[d]) ;
+			int searchedIndex = findInsertPositionBS(arr, 0, d - 1, arr[d]);
 			while (d > searchedIndex) {
-				swap(d, d-1, arr);
+				swap(d, d - 1, arr);
 				d--;
 			}
 		}
@@ -46,25 +46,24 @@ public class Sorting {
 	public static int findInsertPositionBS(int[] array, int start, int end, int number) {
 		if (start < end) {
 			int middle = (start + end) / 2;
-			if(array[middle] == number){
+			if (array[middle] == number) {
 				return middle + 1;
 			}
 			if (number < array[middle]) {
 				return findInsertPositionBS(array, start, middle - 1, number);
 			} else if (number > array[middle]) {
 				return findInsertPositionBS(array, middle + 1, end, number);
-			} 
-		} else if(start >= end){
-			if(number >= array[start]){
-				return start + 1; 
+			}
+		} else if (start >= end) {
+			if (number >= array[start]) {
+				return start + 1;
 			} else {
 				return start;
 			}
 		}
 		return 0;
 	}
-	
-	
+
 	// divide and conquer
 	public static int[] mergeSort(int arr[], int start, int end) {
 		// base of the recursion
@@ -131,12 +130,9 @@ public class Sorting {
 	/**
 	 * Swap two elements of an array by their indexes.
 	 * 
-	 * @param i
-	 *            index of an element
-	 * @param j
-	 *            index of an element
-	 * @param arr
-	 *            array in which two elements will be swapped
+	 * @param i   index of an element
+	 * @param j   index of an element
+	 * @param arr array in which two elements will be swapped
 	 */
 	private static void swap(int i, int j, int[] arr) {
 		int temp = arr[j];
@@ -147,11 +143,10 @@ public class Sorting {
 	/**
 	 * QuickSort implementation.
 	 * 
-	 * - divide-and-conquer algorithm, similar to merge sort - all the work
-	 * happens in the divide step, almost nothing in the combine step - worst
-	 * case O(n^2), average case O(nlogn) - works in place - in practice
-	 * outperforms mergeSort and significantly outperforms insertionSort and
-	 * selectionSort
+	 * - divide-and-conquer algorithm, similar to merge sort - all the work happens
+	 * in the divide step, almost nothing in the combine step - worst case O(n^2),
+	 * average case O(nlogn) - works in place - in practice outperforms mergeSort
+	 * and significantly outperforms insertionSort and selectionSort
 	 * 
 	 * @return sorted array
 	 */
@@ -208,13 +203,11 @@ public class Sorting {
 	}
 
 	/**
-	 * Search for a min element in an array starting from a particular index.
-	 * When a min element found, returns its index.
+	 * Search for a min element in an array starting from a particular index. When a
+	 * min element found, returns its index.
 	 * 
-	 * @param arr
-	 *            array in which a min element is searched
-	 * @param s
-	 *            start index for min element searching
+	 * @param arr array in which a min element is searched
+	 * @param s   start index for min element searching
 	 * @return index of a min element
 	 */
 	private static int findMinIndex(int[] arr, int s) {
@@ -227,5 +220,57 @@ public class Sorting {
 			}
 		}
 		return minIndex;
+	}
+
+	// Counting sort is a sorting technique based on keys between a specific range.
+	// It works by counting the number of objects having distinct key values (kind
+	// of hashing).
+	public static int[] countingSort(int arr[], int range) {
+		int[] countArray = new int[range + 1];
+		// count occurrence of each number
+		for (int i = 0; i < arr.length; i++) {
+			countArray[arr[i]] = countArray[arr[i]] + 1;
+		}
+		// calculate position of each number in the output array
+		for (int i = 1; i < countArray.length; i++) {
+			countArray[i] = countArray[i - 1] + countArray[i];
+		}
+
+		// output
+		int[] result = new int[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			int position = countArray[arr[i]];
+			result[position - 1] = arr[i];
+			countArray[arr[i]]--;
+		}
+		return result;
+	}
+
+	public static int[] countingSort(int arr[], int range, int sortNumber) {
+		int[] countArray = new int[range + 1];
+		// count occurrence of each number
+		for (int i = 0; i < arr.length; i++) {
+			countArray[arr[i]] = countArray[arr[i]] + 1;
+		}
+		// calculate position of each number in the output array
+		for (int i = 1; i < countArray.length; i++) {
+			countArray[i] = countArray[i - 1] + countArray[i];
+		}
+
+		// output
+		int[] result = new int[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			int position = countArray[arr[i]];
+			result[position - 1] = arr[i];
+			countArray[arr[i]]--;
+		}
+		return result;
+	}
+
+	public static int[] radixSort(int arr[], int range) {
+		// output
+		int[] result = new int[arr.length];
+
+		return result;
 	}
 }

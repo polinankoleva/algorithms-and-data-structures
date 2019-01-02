@@ -32,4 +32,5 @@ public class BinarySearch {
 		// the number is not found
 		return false;
 	}
+
 }
