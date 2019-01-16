@@ -8,7 +8,7 @@ package com.data.structures;
 import com.data.structures.simple.StaticDeque;
 import com.data.structures.simple.StaticQueue;
 import com.data.structures.simple.StaticStack;
-import com.data.structures.simple.TwoStacks;
+import com.data.structures.simple.StaticTwoStacksQueue;
 import com.data.structures.tree.BinarySearchTree;
 
 /**
@@ -87,7 +87,7 @@ public class MainExecutionPoint {
 	}
 
 	public static void testTwoStacks() {
-		TwoStacks twoStacks = new TwoStacks(5);
+		StaticTwoStacksQueue twoStacks = new StaticTwoStacksQueue(5);
 
 		// test underflow
 		System.out.println("Test underflow...");

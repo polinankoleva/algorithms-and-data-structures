@@ -14,7 +14,7 @@ package com.data.structures.simple;
  * @author Polina Koleva
  *
  */
-public class TwoStacks {
+public class StaticTwoStacksQueue {
 
 	// keeps index to the top element of the first stack
 	int stack1TopIndex;
@@ -29,7 +29,7 @@ public class TwoStacks {
 	 * @param totalStacksSize
 	 *            total number of elements that both stacks can store.
 	 */
-	public TwoStacks(int totalStacksSize) {
+	public StaticTwoStacksQueue(int totalStacksSize) {
 		this.stacks = new int[totalStacksSize];
 		this.stack1TopIndex = -1;
 		this.stack2TopIndex = this.stacks.length;
