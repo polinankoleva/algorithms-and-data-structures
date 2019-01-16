@@ -31,7 +31,7 @@ public class StockExchangeMatching {
 	 */
 
 	public static List<Integer> computePrices(List<Integer> s, List<Integer> p, List<Integer> q) {
-		ArrayList<Integer> results = new ArrayList<>();
+		ArrayList<Integer> results = new ArrayList<Integer>();
 		// pairs of (s, p)
 		HashMap<Integer, Integer> pairs = new HashMap<Integer, Integer>();
 		for (int i = 0; i < s.size(); i++) {

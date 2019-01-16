@@ -17,27 +17,22 @@ public class MinimumSwap {
 
 	static int minimumSwaps(int[] arr) {
 		int minSwap = 0;
-		int[] copy = arr.clone();
-		Arrays.sort(copy);
-		for (int i = 0; i < arr.length; i++) {
-			if(arr[i] != copy[i]) {
-				minSwap++;
+		// find cycles and sum edges
+		boolean[] visited = new boolean[arr.length];
+		for (int i = 0; i < visited.length; i++) {
+			if (visited[i] == true)
+				continue;
+			int currentCycleEdges = 1;
+			visited[i] = true;
+			int hop = arr[i] - 1;
+			// go through the cycle, once the beginning of the cycle is reached, break it
+			while (i != hop) {
+				visited[hop] = true;
+				hop = arr[hop] - 1;
+				currentCycleEdges++;
 			}
+			minSwap += currentCycleEdges - 1;
 		}
-//		for (int i = 0; i < arr.length; i++) {
-//			int minPosition = i;
-//			for (int j = i + 1; j < arr.length; j++) {
-//				if(arr[minPosition] > arr[j]) {
-//					minPosition = j;
-//				}
-//			}
-//			if(minPosition != i) {
-//				minSwap++;
-//				int temp = arr[minPosition];
-//				arr[minPosition] = arr[i];
-//				arr[i] = temp;
-//			}
-//		}
 		return minSwap;
 	}
 
