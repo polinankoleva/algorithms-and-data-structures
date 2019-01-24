@@ -136,10 +136,8 @@ public class SpecialPalindromeAgain {
 			// continue with j
 			i = j-1;
 		}
-		System.out.println(palindroms);
 		// count all the sequences of form x.x,xx.xx, xxx.xxx and so on
 		for (int i = 1; i < sameChar.length-1; i++) {
-			System.out.println(s);
 			if(sameChar[i] == 1 && sArray[i-1] == sArray[i+1]) {
 				palindroms += Math.min(sameChar[i-1], sameChar[i+1]);
 			}
