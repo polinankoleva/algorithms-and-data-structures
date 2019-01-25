@@ -28,7 +28,8 @@ public class GraphSearch {
 					GraphNode currentAdj = current.adj.get(j);
 					if (!levels.containsKey(currentAdj.index)) {
 						levels.put(currentAdj.index, level);
-						current.parent = current;
+						// TODO check this
+						//current.parent = current;
 						System.out.println(currentAdj.index);
 						next.add(currentAdj);
 					}

@@ -74,14 +74,14 @@ public class GraphSearchTest {
 		System.out.println("PATH:  ------------------");
 		// shortest path between node 2 and node 8 (length 3)
 		GraphNode currentNode = nodeIndex8;
-		System.out.println(currentNode.parent.index);
+//		System.out.println(currentNode.parent.index);
 		boolean notFound = true;
 		int pathLength = 0;
 		while(notFound){
 			//continue
 			if(currentNode.index != nodeIndex2.index){
 				System.out.println(currentNode.index);
-				currentNode = currentNode.parent;
+//				currentNode = currentNode.parent;
 				pathLength++;
 			} else {
 				System.out.println(currentNode.index);

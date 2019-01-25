@@ -1,4 +1,4 @@
-package com.hackerrank;
+package com.tasks;
 
 public class CoinChangeProblem {
 

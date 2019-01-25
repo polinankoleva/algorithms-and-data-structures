@@ -1,4 +1,4 @@
-package com.hackerrank;
+package com.tasks;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;

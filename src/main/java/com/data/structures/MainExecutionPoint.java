@@ -8,7 +8,6 @@ package com.data.structures;
 import com.data.structures.simple.StaticDeque;
 import com.data.structures.simple.StaticQueue;
 import com.data.structures.simple.StaticStack;
-import com.data.structures.simple.StaticTwoStacksQueue;
 import com.data.structures.tree.BinarySearchTree;
 
 /**
@@ -86,39 +85,39 @@ public class MainExecutionPoint {
 
 	}
 
-	public static void testTwoStacks() {
-		StaticTwoStacksQueue twoStacks = new StaticTwoStacksQueue(5);
-
-		// test underflow
-		System.out.println("Test underflow...");
-		// pops from the first stack
-		twoStacks.pop(1);
-		// pops from the second stack
-		twoStacks.pop(2);
-
-		twoStacks.push(1, 1);
-		twoStacks.push(1, 2);
-		twoStacks.push(1, 3);
-		twoStacks.push(2, 10);
-		twoStacks.push(2, 9);
-
-		System.out.println("Test overflow...");
-		// test overflow
-		twoStacks.push(1, 4);
-		twoStacks.push(2, 8);
-
-		System.out.println("Pop from 1st stack:" + twoStacks.pop(1) + ". Expected number: 3");
-		System.out.println("Pop from 2nd stack:" + twoStacks.pop(2) + ". Expected number: 9");
-		System.out.println("Pop from 1st stack:" + twoStacks.pop(1) + ". Expected number: 2");
-		System.out.println("Pop from 2nd stack:" + twoStacks.pop(2) + ". Expected number: 10");
-		System.out.println("Pop from 1st stack:" + twoStacks.pop(1) + ". Expected number: 1");
-
-		// test underflow
-		System.out.println("Testing underflow...");
-		twoStacks.pop(1);
-		twoStacks.pop(2);
-
-	}
+//	public static void testTwoStacks() {
+//		StaticTwoStacksQueue twoStacks = new StaticTwoStacksQueue(5);
+//
+//		// test underflow
+//		System.out.println("Test underflow...");
+//		// pops from the first stack
+//		twoStacks.pop(1);
+//		// pops from the second stack
+//		twoStacks.pop(2);
+//
+//		twoStacks.push(1, 1);
+//		twoStacks.push(1, 2);
+//		twoStacks.push(1, 3);
+//		twoStacks.push(2, 10);
+//		twoStacks.push(2, 9);
+//
+//		System.out.println("Test overflow...");
+//		// test overflow
+//		twoStacks.push(1, 4);
+//		twoStacks.push(2, 8);
+//
+//		System.out.println("Pop from 1st stack:" + twoStacks.pop(1) + ". Expected number: 3");
+//		System.out.println("Pop from 2nd stack:" + twoStacks.pop(2) + ". Expected number: 9");
+//		System.out.println("Pop from 1st stack:" + twoStacks.pop(1) + ". Expected number: 2");
+//		System.out.println("Pop from 2nd stack:" + twoStacks.pop(2) + ". Expected number: 10");
+//		System.out.println("Pop from 1st stack:" + twoStacks.pop(1) + ". Expected number: 1");
+//
+//		// test underflow
+//		System.out.println("Testing underflow...");
+//		twoStacks.pop(1);
+//		twoStacks.pop(2);
+//
+//	}
 
 	public static void testStaticQueue() {
 		StaticQueue queue = new StaticQueue(5);
