@@ -1,7 +1,15 @@
 package com.tasks.strings;
 
+import java.util.HashSet;
 import java.util.Scanner;
 
+/**
+ * Find if two strings have common substring. Substring of length 1 is also
+ * valid common substring.
+ * 
+ * @author Polina Koleva
+ *
+ */
 public class TwoStrings {
 
 	static String twoStrings(String s1, String s2) {
@@ -14,9 +22,14 @@ public class TwoStrings {
 			smaller = s2;
 			bigger = s1;
 		}
-		for (int i = 0; i < smaller.length(); i++) {
-			String currentLetter = smaller.substring(i, i+1);
-			if (bigger.contains(currentLetter)) {
+		HashSet<Character> letters = new HashSet<>();
+		char[] smallerChar = smaller.toCharArray();
+		for (int i = 0; i < smallerChar.length; i++) {
+			letters.add(smallerChar[i]);
+		}
+		char[] biggerChar = bigger.toCharArray();
+		for (int i = 0; i < biggerChar.length; i++) {
+			if (letters.contains(biggerChar[i])) {
 				return "YES";
 			}
 		}
