@@ -154,16 +154,16 @@ public class PalidromeChecking {
 		int sequenceSize = matrix[m][n];
 		char[] longestSequence = new char[sequenceSize + 1];
 		while (sequenceSize >= 0) {
-			if(matrix[m][n] == matrix[m-1][n-1]){
-				longestSequence[sequenceSize] = s1[m];
-				sequenceSize--;
-				m = m-1;
-				n = n-1;
-			} else if(){
-				
-			} else {
-				
-			}
+//			if(matrix[m][n] == matrix[m-1][n-1]){
+//				longestSequence[sequenceSize] = s1[m];
+//				sequenceSize--;
+//				m = m-1;
+//				n = n-1;
+//			} else if(){
+//				
+//			} else {
+//				
+//			}
 		}
 		return String.valueOf(longestSequence);
 	}

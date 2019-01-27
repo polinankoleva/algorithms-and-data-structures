@@ -1,7 +1,6 @@
 package com.tasks;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**

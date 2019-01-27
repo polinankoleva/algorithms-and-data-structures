@@ -8,7 +8,7 @@ package com.tasks.arrays;
  * @author Polina Koleva
  *
  */
-public class SmallestMissingNumber {
+public class SmallestMissingNumberinSortedArray {
 
 	public static int smallestMissingNumber(int[] array) {
 		if (array[0] != 0) {
