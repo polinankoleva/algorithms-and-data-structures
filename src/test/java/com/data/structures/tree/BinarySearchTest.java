@@ -1,4 +1,4 @@
-package com.algorithms.data.structures.tree;
+package com.data.structures.tree;
 
 import org.junit.Assert;
 import org.junit.Test;

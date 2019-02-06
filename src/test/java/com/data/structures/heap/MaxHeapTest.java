@@ -1,4 +1,4 @@
-package com.algorithms.data.structures.heap;
+package com.data.structures.heap;
 
 import org.junit.Assert;
 import org.junit.Test;
