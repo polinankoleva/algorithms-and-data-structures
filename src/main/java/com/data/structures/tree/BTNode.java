@@ -1,15 +1,15 @@
 package com.data.structures.tree;
 
 //TODO add comments
-public class BSTNode {
+public class BTNode {
 
 	int key;
 	int rank;
-	BSTNode parent;
-	BSTNode left;
-	BSTNode right;
+	BTNode parent;
+	BTNode left;
+	BTNode right;
 
-	public BSTNode(int key, int rank, BSTNode parent) {
+	public BTNode(int key, int rank, BTNode parent) {
 		this.key = key;
 		this.rank = rank;
 		this.parent = parent;

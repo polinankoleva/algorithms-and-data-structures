@@ -1,12 +1,9 @@
 package com.data.structures.tree;
 
-import java.util.List;
-
 //TODO add comments
 public class BinarySearchTree {
 
-	public BSTNode root;
-	List<BSTNode> nodes;
+	public BTNode root;
 
 	public BinarySearchTree() {
 
@@ -14,15 +11,15 @@ public class BinarySearchTree {
 
 	public void insert(int key) {
 		if (root == null) {
-			BSTNode rootNode = new BSTNode(key, 1, null);
+			BTNode rootNode = new BTNode(key, 1, null);
 			this.root = rootNode;
 			return;
 		}
-		BSTNode node = this.root;
+		BTNode node = this.root;
 		while (node != null) {
 			if (key <= node.key) {
 				if (node.left == null) {
-					BSTNode newNode = new BSTNode(key, 1, node);
+					BTNode newNode = new BTNode(key, 1, node);
 					node.left = newNode;
 					return;
 				}
@@ -30,7 +27,7 @@ public class BinarySearchTree {
 				node = node.left;
 			} else if (key >= node.key) {
 				if (node.right == null) {
-					BSTNode newNode = new BSTNode(key, 1, node);
+					BTNode newNode = new BTNode(key, 1, node);
 					node.right = newNode;
 					return;
 				}
@@ -49,8 +46,8 @@ public class BinarySearchTree {
 		return findMinimumNode().key;
 	}
 
-	public BSTNode findMinimumNode() {
-		BSTNode node = this.root;
+	public BTNode findMinimumNode() {
+		BTNode node = this.root;
 		if (node == null) {
 			System.out.println("The tree is empty.");
 			return null;
@@ -62,7 +59,7 @@ public class BinarySearchTree {
 	}
 	
 	public int findMaximumKey() {
-		BSTNode node = this.root;
+		BTNode node = this.root;
 		if (node == null) {
 			System.out.println("The tree is empty.");
 			return Integer.MAX_VALUE;
@@ -73,7 +70,7 @@ public class BinarySearchTree {
 		return node.key;
 	}
 
-	public void traverseInorder(BSTNode startNode){
+	public void traverseInorder(BTNode startNode){
 		if(startNode == null){
 			return;
 		}
@@ -82,7 +79,7 @@ public class BinarySearchTree {
 		traverseInorder(startNode.right);
 	}
 	
-	public void traversePreorder(BSTNode startNode){
+	public void traversePreorder(BTNode startNode){
 		if(startNode == null){
 			return;
 		}
@@ -91,7 +88,7 @@ public class BinarySearchTree {
 		traverseInorder(startNode.right);
 	}
 	
-	public void traversePostorder(BSTNode startNode){
+	public void traversePostorder(BTNode startNode){
 		if(startNode == null){
 			return;
 		}
