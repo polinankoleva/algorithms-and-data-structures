@@ -3,11 +3,15 @@ package com.data.structures.tree;
 //TODO add comments
 public class BTNode {
 
-	int key;
-	int rank;
-	BTNode parent;
-	BTNode left;
-	BTNode right;
+	public int key;
+	public int rank;
+	public BTNode parent;
+	public BTNode left;
+	public BTNode right;
+
+	public BTNode() {
+
+	}
 
 	public BTNode(int key, int rank, BTNode parent) {
 		this.key = key;

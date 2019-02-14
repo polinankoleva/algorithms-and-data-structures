@@ -1,9 +1,15 @@
 package com.data.structures.tree;
 
+import java.util.List;
+
 //TODO add comments
 public class BinarySearchTree {
 
 	public BTNode root;
+	List<BTNode> nodes;
+	
+	//for converting bt to ddl
+	public BTNode head;
 
 	public BinarySearchTree() {
 
