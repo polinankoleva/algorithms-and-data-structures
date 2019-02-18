@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-
 /**
  * You are given an array and you need to find number of tripets of indices (i,
  * j, k) such that the elements at those indices are in geometric progression
@@ -24,38 +23,31 @@ public class CountTriplets {
 	// Complete the countTriplets function below.
 	static long countTriplets(List<Long> arr, long r) {
 		long triples = 0;
-		HashMap<Long, Long> nextNumbers = new HashMap<>();
-		HashMap<Long, Long> initialNumbers = new HashMap<>();
-		for (int i = arr.size() - 1; i >= 0; i--) {
-			Long current = arr.get(i);
-			System.out.println(current);
-			// add it to the nextNumbers;
-			Long next = current / r;
-			Long nextRemainder = current % r;
-			if(nextRemainder != 0) continue;
-			System.out.println("Next:" + next);
-			if (nextNumbers.containsKey(next)) {
-				nextNumbers.put(next, nextNumbers.get(next) + 1L);
-			} else {
-				nextNumbers.put(next, 1L);
+		HashMap<Long, Long> seenNumbers = new HashMap<>();
+		HashMap<Long, Long> searchedNumbers = new HashMap<>();
+		for (Long number : arr) {
+			// assume this element is in the middle of the triple
+			long previous = number / r;
+			long next = number * r;
+
+			// check if current number forms triples
+			Long currentNumberTriples = searchedNumbers.get(number);
+			if (currentNumberTriples != null) {
+				triples += currentNumberTriples;
 			}
-			System.out.println("NextNumbers " + nextNumbers);
-			if (nextNumbers.containsKey(current)) {
-				Long nextToNext = current / r;
-				if (nextToNext >= 1) {
-					System.out.println("NextToNext " + nextToNext);
-					if (initialNumbers.containsKey(nextToNext)) {
-						initialNumbers.put(nextToNext, initialNumbers.get(nextToNext) + 1L);
-					} else {
-						initialNumbers.put(nextToNext, 1L);
-					}
-				}
-				System.out.println("Initial Numbers " + initialNumbers);
+			
+			// count how many of the triple's first element has been seen and add the last
+			// element of the triple as the searched one
+			Long previousSeen = seenNumbers.get(previous);
+			if (previousSeen != null) {
+				Long nextTime = searchedNumbers.get(next);
+				nextTime = nextTime == null ? 0 : nextTime;
+				searchedNumbers.put(next, nextTime + previousSeen);
 			}
-			if (initialNumbers.containsKey(current)) {
-				triples += initialNumbers.get(current) * nextNumbers.get(current * r);
-				System.out.println("Triples:" + triples);
-			}
+			// add current number to seen numbers
+			Long countCurrentNumber = seenNumbers.get(number);
+			countCurrentNumber = countCurrentNumber == null ? 0 : countCurrentNumber;
+			seenNumbers.put(number, countCurrentNumber + 1);
 		}
 		return triples;
 	}
