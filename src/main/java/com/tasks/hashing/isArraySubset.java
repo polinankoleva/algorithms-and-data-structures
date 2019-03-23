@@ -1,4 +1,4 @@
-package com.data.structures.hashing;
+package com.tasks.hashing;
 
 /***
  * Given two arrays: arr1[0..m-1] and arr2[0..n-1]. Find whether arr2[] is a
@@ -23,5 +23,4 @@ public class isArraySubset {
 		// TODO Auto-generated method stub
 
 	}
-
 }

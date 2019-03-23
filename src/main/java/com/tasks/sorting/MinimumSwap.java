@@ -1,4 +1,4 @@
-package com.tasks;
+package com.tasks.sorting;
 
 import java.io.IOException;
 import java.util.Scanner;

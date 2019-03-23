@@ -1,4 +1,4 @@
-package com.tasks;
+package com.tasks.dp;
 
 /**
  * Given a mapping for each character from a to z. For example 'a' corresponds

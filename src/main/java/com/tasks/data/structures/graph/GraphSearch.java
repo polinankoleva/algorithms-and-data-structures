@@ -1,4 +1,4 @@
-package com.algorithms.graph;
+package com.tasks.data.structures.graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;

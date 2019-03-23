@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import com.data.structures.graph.Graph;
 import com.data.structures.graph.GraphNode;
+import com.tasks.data.structures.graph.GraphSearch;
 
 public class GraphSearchTest {
 

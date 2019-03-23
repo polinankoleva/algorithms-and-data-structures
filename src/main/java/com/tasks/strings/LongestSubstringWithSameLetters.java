@@ -1,4 +1,4 @@
-package com.tasks;
+package com.tasks.strings;
 
 import java.util.Comparator;
 import java.util.HashMap;
@@ -10,16 +10,16 @@ import java.util.PriorityQueue;
 public class LongestSubstringWithSameLetters {
 
 	public static int solution(String[] words) {
-		Map<Character, PriorityQueue<Pair>> prefixes = new HashMap<>();
-		Map<Character, PriorityQueue<Pair>> suffixes = new HashMap<>();
+		Map<Character, PriorityQueue<PairLSSL>> prefixes = new HashMap<>();
+		Map<Character, PriorityQueue<PairLSSL>> suffixes = new HashMap<>();
 		HashSet<Character> letters = new HashSet<>();
 		Map<Character, Integer> wordSameLetters = new HashMap<>();
 		// max substring consisting of the same letters that is between prefix and
 		// suffix;
 		int middleMax = Integer.MIN_VALUE;
-		Comparator<Pair> pairComparator = new Comparator<Pair>() {
+		Comparator<PairLSSL> pairComparator = new Comparator<PairLSSL>() {
 			@Override
-			public int compare(Pair p1, Pair p2) {
+			public int compare(PairLSSL p1, PairLSSL p2) {
 				return -(p1.occurence - p2.occurence);
 			}
 		};
@@ -36,12 +36,12 @@ public class LongestSubstringWithSameLetters {
 					prefix++;
 				} else {
 					if (prefixes.containsKey(prefixChar)) {
-						PriorityQueue<Pair> pq = prefixes.get(prefixChar);
-						pq.add(new Pair(i, prefix));
+						PriorityQueue<PairLSSL> pq = prefixes.get(prefixChar);
+						pq.add(new PairLSSL(i, prefix));
 						prefixes.put(prefixChar, pq);
 					} else {
-						PriorityQueue<Pair> pq = new PriorityQueue<>(pairComparator);
-						pq.add(new Pair(i, prefix));
+						PriorityQueue<PairLSSL> pq = new PriorityQueue<>(pairComparator);
+						pq.add(new PairLSSL(i, prefix));
 						prefixes.put(prefixChar, pq);
 					}
 					break;
@@ -67,12 +67,12 @@ public class LongestSubstringWithSameLetters {
 					} else {
 						// suffix ended add to prefix map
 						if (suffixes.containsKey(suffixChar)) {
-							PriorityQueue<Pair> pq = suffixes.get(suffixChar);
-							pq.add(new Pair(i, suffix));
+							PriorityQueue<PairLSSL> pq = suffixes.get(suffixChar);
+							pq.add(new PairLSSL(i, suffix));
 							suffixes.put(suffixChar, pq);
 						} else {
-							PriorityQueue<Pair> pq = new PriorityQueue<>(pairComparator);
-							pq.add(new Pair(i, suffix));
+							PriorityQueue<PairLSSL> pq = new PriorityQueue<>(pairComparator);
+							pq.add(new PairLSSL(i, suffix));
 							suffixes.put(suffixChar, pq);
 						}
 						break;
@@ -81,7 +81,7 @@ public class LongestSubstringWithSameLetters {
 
 				// save chars from prefix to suffix in the letter set
 				// search for long middle substring
-				for (int p = prefix ; p < wordToArray.length - suffix; p++) {
+				for (int p = prefix; p < wordToArray.length - suffix; p++) {
 					letters.add(wordToArray[p]);
 					int middle = 1;
 					int next = p + 1;
@@ -106,14 +106,14 @@ public class LongestSubstringWithSameLetters {
 				currentL = wordSameLetters.get(character);
 			}
 			if (prefixes.get(character) == null && suffixes.get(character) != null) {
-				Pair suffixPair = suffixes.get(character).poll();
+				PairLSSL suffixPair = suffixes.get(character).poll();
 				currentL += suffixPair.occurence;
 			} else if (suffixes.get(character) == null && prefixes.get(character) != null) {
-				Pair prefixPair = prefixes.get(character).poll();
+				PairLSSL prefixPair = prefixes.get(character).poll();
 				currentL += prefixPair.occurence;
 			} else if (prefixes.get(character) != null && suffixes.get(character) != null) {
-				Pair prefixPair = prefixes.get(character).poll();
-				Pair suffixPair = suffixes.get(character).poll();
+				PairLSSL prefixPair = prefixes.get(character).poll();
+				PairLSSL suffixPair = suffixes.get(character).poll();
 				if (prefixPair.wordIndex != suffixPair.wordIndex) {
 					currentL += suffixPair.occurence + prefixPair.occurence;
 				} else {
@@ -127,7 +127,7 @@ public class LongestSubstringWithSameLetters {
 						if (prefixes.get(character).peek() == null) {
 							currentL += suffixPair.occurence;
 						} else {
-							Pair p = prefixes.get(character).poll();
+							PairLSSL p = prefixes.get(character).poll();
 							currentL += suffixPair.occurence + p.occurence;
 						}
 					}
@@ -148,14 +148,24 @@ public class LongestSubstringWithSameLetters {
 	}
 
 	public static void main(String[] args) {
-		 System.out.println(solution(new String[] { "aabb", "aaaa", "bbab"}));
-		 System.out.println(solution(new String[] { "xxbxx", "xbx", "x" }));
-		 System.out.println(solution(new String[] { "dd", "bb", "cc", "dd" }));
+		System.out.println(solution(new String[] { "aabb", "aaaa", "bbab" }));
+		System.out.println(solution(new String[] { "xxbxx", "xbx", "x" }));
+		System.out.println(solution(new String[] { "dd", "bb", "cc", "dd" }));
 		System.out.println(solution(new String[] { "baaaab", "aaaa", "baaa", "cdc", "aaaadd" }));
-		System.out.println(solution(new String[] { "abbba"}));
-		System.out.println(solution(new String[] { "aaaa"}));
-		System.out.println(solution(new String[] { "aaaa", "aaa"}));
-		System.out.println(solution(new String[] { "aaaa", "aaa" , "xa"}));
-		System.out.println(solution(new String[] { "aaabbccc", "aaabbb"}));
+		System.out.println(solution(new String[] { "abbba" }));
+		System.out.println(solution(new String[] { "aaaa" }));
+		System.out.println(solution(new String[] { "aaaa", "aaa" }));
+		System.out.println(solution(new String[] { "aaaa", "aaa", "xa" }));
+		System.out.println(solution(new String[] { "aaabbccc", "aaabbb" }));
+	}
+}
+
+class PairLSSL {
+	int wordIndex;
+	int occurence;
+
+	public PairLSSL(int wordIndex, int occurence) {
+		this.wordIndex = wordIndex;
+		this.occurence = occurence;
 	}
 }

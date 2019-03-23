@@ -1,4 +1,4 @@
-package com.algorithms.dp;
+package com.tasks.dp;
 
 import java.util.HashMap;
 import java.util.Scanner;

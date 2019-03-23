@@ -1,16 +1,19 @@
 package com.algorithms;
 
+import static com.tasks.sorting.Sorting.bsInsertionSort;
+import static com.tasks.sorting.Sorting.bubbleSort;
+import static com.tasks.sorting.Sorting.countingSort;
+import static com.tasks.sorting.Sorting.findInsertPositionBS;
+import static com.tasks.sorting.Sorting.merge;
+import static com.tasks.sorting.Sorting.mergeSort;
+import static com.tasks.sorting.Sorting.quickSort;
+import static com.tasks.sorting.Sorting.selectionSort;
+import static com.tasks.sorting.Sorting.vanillaInsertionSort;
+
 import org.junit.Assert;
 import org.junit.Test;
-import static com.algorithms.Sorting.vanillaInsertionSort;
-import static com.algorithms.Sorting.merge;
-import static com.algorithms.Sorting.mergeSort;
-import static com.algorithms.Sorting.bubbleSort;
-import static com.algorithms.Sorting.quickSort;
-import static com.algorithms.Sorting.selectionSort;
-import static com.algorithms.Sorting.findInsertPositionBS;
-import static com.algorithms.Sorting.bsInsertionSort;
-import static com.algorithms.Sorting.countingSort;
+
+import com.tasks.sorting.Sorting;
 
 
 /**

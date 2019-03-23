@@ -1,4 +1,4 @@
-package com.tasks.data.structures;
+package com.tasks.data.structures.bt;
 
 import com.data.structures.tree.BTNode;
 import com.data.structures.tree.BinarySearchTree;

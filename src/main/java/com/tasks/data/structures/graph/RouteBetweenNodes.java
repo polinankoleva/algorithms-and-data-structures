@@ -1,4 +1,4 @@
-package com.tasks.data.structures;
+package com.tasks.data.structures.graph;
 
 import java.util.LinkedList;
 import java.util.PriorityQueue;

@@ -1,4 +1,4 @@
-package com.tasks.data.structures;
+package com.tasks.data.structures.bt;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -1,4 +1,4 @@
-package com.tasks;
+package com.tasks.data.structures.list;
 
 import java.util.Scanner;
 

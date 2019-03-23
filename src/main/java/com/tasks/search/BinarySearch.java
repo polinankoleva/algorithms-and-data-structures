@@ -1,4 +1,4 @@
-package com.algorithms;
+package com.tasks.search;
 
 /**
  * Util class for different functions which contain binary search algorithm.

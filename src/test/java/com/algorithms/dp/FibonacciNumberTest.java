@@ -1,10 +1,12 @@
 package com.algorithms.dp;
 
-import static com.algorithms.dp.FibonacciNumber.fibonacciNumber;
-import static com.algorithms.dp.FibonacciNumber.dpFibonacciNumber;
+import static com.tasks.dp.FibonacciNumber.dpFibonacciNumber;
+import static com.tasks.dp.FibonacciNumber.fibonacciNumber;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.tasks.dp.FibonacciNumber;
 
 /**
  * Test cases for {@link FibonacciNumber}.

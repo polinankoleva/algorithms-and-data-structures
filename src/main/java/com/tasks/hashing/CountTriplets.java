@@ -1,4 +1,4 @@
-package com.tasks;
+package com.tasks.hashing;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * You are given an array and you need to find number of tripets of indices (i,
+ * You are given an array and you need to find number of triplets of indices (i,
  * j, k) such that the elements at those indices are in geometric progression
  * for a given common ratio k and i < j < k.
  * 
@@ -29,13 +29,11 @@ public class CountTriplets {
 			// assume this element is in the middle of the triple
 			long previous = number / r;
 			long next = number * r;
-
 			// check if current number forms triples
 			Long currentNumberTriples = searchedNumbers.get(number);
 			if (currentNumberTriples != null) {
 				triples += currentNumberTriples;
 			}
-			
 			// count how many of the triple's first element has been seen and add the last
 			// element of the triple as the searched one
 			Long previousSeen = seenNumbers.get(previous);
@@ -54,26 +52,17 @@ public class CountTriplets {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-
 		String[] nr = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
-
 		int n = Integer.parseInt(nr[0]);
-
 		long r = Long.parseLong(nr[1]);
-
 		String[] arrItems = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
-
 		List<Long> arr = new ArrayList<>();
-
 		for (int i = 0; i < n; i++) {
 			long arrItem = Long.parseLong(arrItems[i]);
 			arr.add(arrItem);
 		}
-
 		long ans = countTriplets(arr, r);
-
 		System.out.println(String.valueOf(ans));
-
 		bufferedReader.close();
 	}
 }

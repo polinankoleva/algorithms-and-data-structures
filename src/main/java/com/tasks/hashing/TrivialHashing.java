@@ -1,4 +1,4 @@
-package com.data.structures.hashing;
+package com.tasks.hashing;
 
 /**
  * Given a limited range array contains both positive and non positive numbers,

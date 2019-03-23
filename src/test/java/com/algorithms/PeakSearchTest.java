@@ -1,10 +1,13 @@
 package com.algorithms;
 
+import static com.tasks.search.PeakSearch.recursiveFindPeak;
+import static com.tasks.search.PeakSearch.recursiveFindPeakCopy;
+import static com.tasks.search.PeakSearch.simpleFindPeak;
+
 import org.junit.Assert;
 import org.junit.Test;
-import static com.algorithms.PeakSearch.simpleFindPeak;
-import static com.algorithms.PeakSearch.recursiveFindPeakCopy;
-import static com.algorithms.PeakSearch.recursiveFindPeak;
+
+import com.tasks.search.PeakSearch;
 
 /**
  * Test cases for {@link PeakSearch} class functionality.

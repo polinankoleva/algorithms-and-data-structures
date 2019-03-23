@@ -1,4 +1,4 @@
-package com.tasks;
+package com.tasks.hashing;
 
 import java.util.List;
 import java.util.Scanner;

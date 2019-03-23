@@ -3,7 +3,7 @@
  * 
  * Polina Koleva, 28.06.2017.
  */
-package com.algorithms;
+package com.tasks.sorting;
 
 /**
  * Util class for different sorting algorithms.
