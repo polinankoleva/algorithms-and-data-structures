@@ -1,11 +1,11 @@
 package com.data.structures.tree;
 
+import static com.tasks.search.BinarySearch.bs;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.algorithms.BinarySearch;
-
-import static com.algorithms.BinarySearch.bs;
+import com.tasks.search.BinarySearch;
 
 /**
  * Test cases for {@link BinarySearch}.

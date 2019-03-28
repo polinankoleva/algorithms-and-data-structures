@@ -2,8 +2,6 @@ package com.java8;
 
 import java.util.List;
 
-import org.hamcrest.core.IsInstanceOf;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
