@@ -6,6 +6,13 @@ import java.util.HashSet;
 
 import com.data.structures.list.LinkedList;
 
+/**
+ * Remove duplicates from an unsorted linked list. How would you solve this
+ * problem if a temporary buffer is not allowed. CtCI book, Task 2.1
+ * 
+ * @author Polina Koleva
+ *
+ */
 public class RemoveDuplicates {
 	public static void removeDuplicates(ArrayList<Integer> list) {
 		HashSet<Integer> duplicates = new HashSet<Integer>();

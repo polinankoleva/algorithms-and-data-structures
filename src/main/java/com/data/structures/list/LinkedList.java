@@ -2,6 +2,12 @@ package com.data.structures.list;
 
 import java.util.HashSet;
 
+/**
+ * Simple singly linked list implementation. Nodes contain an integer data only.
+ * 
+ * @author Polina Koleva
+ *
+ */
 public class LinkedList {
 	public Node head;
 

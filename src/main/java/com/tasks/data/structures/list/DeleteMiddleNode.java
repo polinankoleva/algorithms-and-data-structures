@@ -7,7 +7,7 @@ import com.data.structures.list.Node;
  * Delete a node in the middle (any node but the first and the last one, not
  * necessarily the exact middle) of a singly linked list, given only access to
  * that node.
- * 
+ * CtCI book - Task 2.3
  * @author Polina Koleva
  *
  */
