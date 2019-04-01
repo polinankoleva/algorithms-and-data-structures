@@ -8,16 +8,36 @@ import java.util.Stack;
  * which should return minimum element from the SpecialStack. All these
  * operations of SpecialStack must be O(1). To implement SpecialStack, you
  * should only use standard Stack data structure and no other data structure
- * like arrays
+ * like arrays.
  * 
  * @author Polina Koleva
  *
  * @param <Integer>
  */
-public class SpecialStack<Integer> {
+public class SpecialStack {
 
 	Stack<Integer> normalStack = new Stack<>();
 	Stack<Integer> minStack = new Stack<>();
+	//int minValue = Integer.MAX_VALUE;
+
+//	public void push(Integer value) {
+//		// normalStack
+//		normalStack.push(value);
+//		if (value < minValue) {
+//			minValue = value;
+//		}
+//		// min stack
+//		minStack.push(minValue);
+//	}
+//
+//	public int getMin() {
+//		return minStack.peek();
+//	}
+//
+//	public int pop() {
+//		minStack.pop();
+//		return normalStack.pop();
+//	}
 
 	public void push(Integer value) {
 		normalStack.push(value);
@@ -25,7 +45,7 @@ public class SpecialStack<Integer> {
 			minStack.push(value);
 		} else {
 			Integer minValue = minStack.peek();
-			if ((int) minValue > (int) value) {
+			if ((int) minValue >= (int) value) {
 				minStack.push(value);
 			}
 		}

@@ -11,6 +11,7 @@ import com.data.structures.list.Node;
  * need to appear between the left and right partitions.
  * 
  * CtCI book, Task 2.4
+ * 
  * @author Polina Koleva
  *
  */
@@ -19,6 +20,8 @@ public class Partition {
 	// and one with nodes that are greater
 	// merge two lists and return the head of the newly created list
 	public static Node partitionByValueTwoLists(int x, Node head) {
+		if (head == null)
+			return null;
 		Node smallerHead = null;
 		Node smallerTail = null;
 		Node greaterHead = null;
@@ -49,12 +52,10 @@ public class Partition {
 		// create the next reference of the greater tail
 		greaterTail.next = null;
 		// if no smaller values than k
-		if(smallerTail == null) {
+		if (smallerHead == null) {
 			return greaterHead;
-		} else if(greaterHead == null) {
+		} else if (greaterHead == null) {
 			return smallerHead;
-		} if(smallerHead == null && greaterHead == null) {
-			return null;
 		} else {
 			// merge both lists
 			smallerTail.next = greaterHead;
@@ -96,7 +97,7 @@ public class Partition {
 		sb.append("}");
 		return sb.toString();
 	}
-	
+
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
 		list.add(1);
