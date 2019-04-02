@@ -1,8 +1,6 @@
 package com.tasks.data.structures.graph;
 
 import java.util.LinkedList;
-import java.util.PriorityQueue;
-
 import com.data.structures.graph.Graph;
 import com.data.structures.graph.GraphNode;
 import com.data.structures.graph.GraphNode.State;
@@ -37,7 +35,7 @@ public class RouteBetweenNodes {
 			for (GraphNode child : current.adj) {
 				if (child.state == State.UNVISITED) {
 					if (child == end) {
-						return false;
+						return true;
 					}
 					child.state = State.VISITING;
 					queue.add(child);

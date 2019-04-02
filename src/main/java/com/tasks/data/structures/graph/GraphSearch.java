@@ -2,18 +2,26 @@ package com.tasks.data.structures.graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Queue;
 
 import com.data.structures.graph.Graph;
 import com.data.structures.graph.GraphNode;
+import com.data.structures.list.LinkedList;
 
+/**
+ * Graph Traversal implementation - BFS and DFS.
+ * 
+ * @author Polina Koleva
+ *
+ */
 public class GraphSearch {
-	
-	public static void bfs(Graph graph, GraphNode sourceNode){
+
+	public static void bfs(Graph graph, GraphNode sourceNode) {
 		if (graph.vertices.isEmpty()) {
 			System.out.println("Graph is empty.");
 			return;
 		}
-		System.out.println(sourceNode.index);
+		System.out.println("Starting traversing from:" + sourceNode.index);
 		// map that contains key:index of Node, value: level
 		HashMap<Integer, Integer> levels = new HashMap<Integer, Integer>();
 		int level = 0;
@@ -28,20 +36,17 @@ public class GraphSearch {
 					GraphNode currentAdj = current.adj.get(j);
 					if (!levels.containsKey(currentAdj.index)) {
 						levels.put(currentAdj.index, level);
-						// TODO check this
-						//current.parent = current;
 						System.out.println(currentAdj.index);
 						next.add(currentAdj);
 					}
 				}
 			}
-			frontier = next;			
+			frontier = next;
 		}
 	}
-	
-	
-	// start from random node 
-	public static void bfs(Graph graph){
+
+	// start from random node
+	public static void bfs(Graph graph) {
 		if (graph.vertices.isEmpty()) {
 			System.out.println("Graph is empty.");
 			return;
@@ -71,7 +76,7 @@ public class GraphSearch {
 					}
 				}
 			}
-			frontier = next;			
+			frontier = next;
 		}
 	}
 }
