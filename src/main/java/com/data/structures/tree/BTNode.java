@@ -18,4 +18,6 @@ public class BTNode {
 		this.rank = rank;
 		this.parent = parent;
 	}
+	
+	
 }

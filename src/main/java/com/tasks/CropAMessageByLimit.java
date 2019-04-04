@@ -42,5 +42,4 @@ public class CropAMessageByLimit {
 	public static void main(String[] args) {
 		System.out.println(solution("Codility We test coders", 14));
 	}
-
 }
