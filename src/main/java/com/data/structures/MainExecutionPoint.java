@@ -5,6 +5,8 @@ package com.data.structures;
  * Polina Koleva, 02.08.2016.
  */
 
+import com.data.structures.list.CustomLinkedList;
+import com.data.structures.list.Node;
 import com.data.structures.simple.StaticDeque;
 import com.data.structures.simple.StaticQueue;
 import com.data.structures.simple.StaticStack;
@@ -17,6 +19,22 @@ import com.data.structures.tree.BinarySearchTree;
  *
  */
 public class MainExecutionPoint {
+	public static Node reverse(Node head) {
+		if (head == null || head.next == null) {
+			return head;
+		}
+		return reverse(head.next, head);
+	}
+
+	public static Node reverse(Node current, Node previous) {
+		if (current == null) {
+			return previous;
+		}
+		Node head = reverse(current.next, current);
+		current.next = previous;
+		previous.next = null;
+		return head;
+	}
 
 	public static void main(String[] args) {
 		// testStaticStack();
@@ -24,6 +42,14 @@ public class MainExecutionPoint {
 		// testTwoStacks();
 		// testDeque();
 		// testBinarySearchTree();
+
+		// testing custom linked list reverse method
+		CustomLinkedList list = new CustomLinkedList();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		reverse(list.head);
+		System.out.println(list);
 	}
 
 	// TODO move to tests

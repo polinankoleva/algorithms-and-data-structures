@@ -97,12 +97,30 @@ public class CustomLinkedList {
 		}
 	}
 
+	public void reverse() {
+		if (this.head == null || this.head.next == null) {
+			return;
+		}
+		reverse(this.head.next, this.head);
+	}
+
+	public void reverse(Node current, Node previous) {
+		if (current == null) {
+			this.head = previous;
+			return;
+		}
+		reverse(current.next, current);
+		current.next = previous;
+		previous.next = null;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("{");
 		Node current = head;
 		while (current != null) {
+			System.out.println(current.data);
 			sb.append(current.data + " ");
 			current = current.next;
 		}
