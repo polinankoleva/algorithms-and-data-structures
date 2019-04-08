@@ -1,7 +1,7 @@
 package com.tasks.data.structures.list;
 
 import com.data.structures.list.Node;
-import com.data.structures.list.LinkedList;;
+import com.data.structures.list.CustomLinkedList;;
 
 /**
  * Find the k-th to last element of a singly linked list. CtCI book Task 2.2
@@ -11,7 +11,7 @@ import com.data.structures.list.LinkedList;;
  */
 public class KthToLast {
 
-	public static Node kthToLast(LinkedList list, int k) {
+	public static Node kthToLast(CustomLinkedList list, int k) {
 		int size = list.size();
 		if (k > size)
 			return null;
@@ -67,7 +67,7 @@ public class KthToLast {
 	}
 
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
+		CustomLinkedList list = new CustomLinkedList();
 		list.add(1);
 		list.add(3);
 		list.add(3);

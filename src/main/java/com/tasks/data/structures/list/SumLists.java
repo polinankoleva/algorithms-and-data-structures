@@ -1,6 +1,6 @@
 package com.tasks.data.structures.list;
 
-import com.data.structures.list.LinkedList;
+import com.data.structures.list.CustomLinkedList;
 import com.data.structures.list.Node;
 
 /**
@@ -127,11 +127,11 @@ public class SumLists {
 	}
 
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
+		CustomLinkedList list = new CustomLinkedList();
 		list.add(6);
 		list.add(1);
 		list.add(7);
-		LinkedList list2 = new LinkedList();
+		CustomLinkedList list2 = new CustomLinkedList();
 		list2.add(2);
 		list2.add(9);
 		list2.add(5);

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
-import com.data.structures.list.LinkedList;
+import com.data.structures.list.CustomLinkedList;
 
 /**
  * Remove duplicates from an unsorted linked list. How would you solve this
@@ -32,7 +32,7 @@ public class RemoveDuplicates {
 	}
 
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
+		CustomLinkedList list = new CustomLinkedList();
 		list.add(1);
 		list.add(3);
 		list.add(3);

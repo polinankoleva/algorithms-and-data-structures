@@ -1,6 +1,6 @@
 package com.tasks.data.structures.list;
 
-import com.data.structures.list.LinkedList;
+import com.data.structures.list.CustomLinkedList;
 import com.data.structures.list.Node;
 
 /**
@@ -99,7 +99,7 @@ public class Partition {
 	}
 
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
+		CustomLinkedList list = new CustomLinkedList();
 		list.add(1);
 		list.add(3);
 		list.add(3);

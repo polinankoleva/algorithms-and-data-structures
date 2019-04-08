@@ -6,7 +6,7 @@ import java.util.Queue;
 
 import com.data.structures.graph.Graph;
 import com.data.structures.graph.GraphNode;
-import com.data.structures.list.LinkedList;
+import com.data.structures.list.CustomLinkedList;
 
 /**
  * Graph Traversal implementation - BFS and DFS.

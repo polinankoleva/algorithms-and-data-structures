@@ -8,7 +8,7 @@ import java.util.HashSet;
  * @author Polina Koleva
  *
  */
-public class LinkedList {
+public class CustomLinkedList {
 	public Node head;
 
 	public void add(Node node) {
