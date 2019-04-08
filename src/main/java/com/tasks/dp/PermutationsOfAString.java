@@ -6,12 +6,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Write a method to compute all permutations of a string of unique characters.
+ * Task 1 -> Write a method to compute all permutations of a string of unique
+ * characters. Task 2 -> Write a method to compute all permutations of a string
+ * whose characters are not necessarily unique. The list of permutations should
+ * not have duplicates.
  * 
  * @author Polina Koleva
  *
  */
-public class PermutationsWithoutDups {
+public class PermutationsOfAString {
 
 	public static Set<StringBuilder> permutations(String input) {
 		Set<StringBuilder> resultSet = new HashSet<>();
@@ -24,6 +27,27 @@ public class PermutationsWithoutDups {
 			char currentLetter = input.charAt(i);
 			String newInput = input.substring(0, i) + input.substring(i + 1, input.length());
 			Set<StringBuilder> permutationSet = permutations(newInput);
+			appendHelper(currentLetter, permutationSet);
+			resultSet.addAll(permutationSet);
+		}
+		return resultSet;
+	}
+
+	public static Set<StringBuilder> permutationsWithoutDuplications(String input) {
+		Set<StringBuilder> resultSet = new HashSet<>();
+		if (input.length() == 1) {
+			resultSet.add(new StringBuilder(input));
+			return resultSet;
+		}
+		// merge all permutations
+		HashSet<Character> letters = new HashSet<Character>();
+		for (int i = 0; i < input.length(); i++) {
+			char currentLetter = input.charAt(i);
+			if (letters.contains(currentLetter))
+				continue;
+			letters.add(currentLetter);
+			String newInput = input.substring(0, i) + input.substring(i + 1, input.length());
+			Set<StringBuilder> permutationSet = permutationsWithoutDuplications(newInput);
 			appendHelper(currentLetter, permutationSet);
 			resultSet.addAll(permutationSet);
 		}
@@ -97,6 +121,6 @@ public class PermutationsWithoutDups {
 
 	public static void main(String[] args) {
 		// System.out.println(permutations("abcdefghijklmnopqrstuvwxyz"));
-		System.out.println(permutationsMemo("abcdefghijklmnopqrstuvwxyz"));
+		System.out.println(permutationsWithoutDuplications("aabb"));
 	}
 }
