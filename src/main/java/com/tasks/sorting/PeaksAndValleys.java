@@ -49,7 +49,7 @@ public class PeaksAndValleys {
 			System.out.print(result[i] + " ");
 		}
 		System.out.println();
-		result = new int[] { 5, 3, 1, 2, 3 };
+		result = new int[] { 9, 1, 0, 4, 8, 7};
 		peaksAndValleys(result);
 		for (int i = 0; i < result.length; i++) {
 			System.out.print(result[i] + " ");
