@@ -49,11 +49,11 @@ public class PaintFill {
 		while (!toVisit.isEmpty()) {
 			Point current = toVisit.removeFirst();
 			ArrayList<Point> children = getNeighbours(current);
-			for(int i = 0; i < children.size(); i++) {
+			for (int i = 0; i < children.size(); i++) {
 				Point child = children.get(i);
-				if(child.row < 0 || child.row >= matrix.length || child.col < 0 || child.col >= matrix[0].length) {
+				if (child.row < 0 || child.row >= matrix.length || child.col < 0 || child.col >= matrix[0].length) {
 					continue;
-				} 
+				}
 				if (!visiting[child.row][child.col]) {
 					visiting[child.row][child.col] = true;
 					if (matrix[child.row][child.col] == oldColor) {
@@ -96,7 +96,7 @@ public class PaintFill {
 			System.out.println();
 		}
 		paintFill(matrix, 2, 2, 9);
-		//paintFillBFS(matrix, new Point(2, 2), 4, 9);
+		// paintFillBFS(matrix, new Point(2, 2), 4, 9);
 		// zeroMatrixNoAddSpace(matrix);
 		System.out.println();
 		for (int i = 0; i < matrix.length; i++) {
