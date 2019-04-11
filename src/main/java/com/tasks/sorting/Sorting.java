@@ -132,9 +132,12 @@ public class Sorting {
 	/**
 	 * Swap two elements of an array by their indexes.
 	 * 
-	 * @param i   index of an element
-	 * @param j   index of an element
-	 * @param arr array in which two elements will be swapped
+	 * @param i
+	 *            index of an element
+	 * @param j
+	 *            index of an element
+	 * @param arr
+	 *            array in which two elements will be swapped
 	 */
 	private static void swap(int i, int j, int[] arr) {
 		int temp = arr[j];
@@ -186,7 +189,10 @@ public class Sorting {
 		}
 	}
 
-	// TODO implement when heap is implemented
+	// Complexity nlogn
+	// 1) building the minHeap - O(n)
+	// 2) extract minimum O(1)
+	// 3) minHeapify O(logn)
 	public static int[] heapSortDesc(int[] arr) {
 		MinHeap minHeap = new MinHeap(arr);
 		return minHeap.heapSort();
@@ -209,8 +215,10 @@ public class Sorting {
 	 * Search for a min element in an array starting from a particular index. When a
 	 * min element found, returns its index.
 	 * 
-	 * @param arr array in which a min element is searched
-	 * @param s   start index for min element searching
+	 * @param arr
+	 *            array in which a min element is searched
+	 * @param s
+	 *            start index for min element searching
 	 * @return index of a min element
 	 */
 	private static int findMinIndex(int[] arr, int s) {
@@ -248,8 +256,9 @@ public class Sorting {
 		}
 		return result;
 	}
-
+	
 	public static int[] countingSort(int arr[], int range, int sortNumber) {
+		
 		int[] countArray = new int[range + 1];
 		// count occurrence of each number
 		for (int i = 0; i < arr.length; i++) {
@@ -276,4 +285,94 @@ public class Sorting {
 
 		return result;
 	}
+
+	// O(nlogn) average case, O(n^2) worst case
+	// O(1) space
+	public static void quickSortEx(int[] arr, int start, int end) {
+		// base case
+		if (end < start)
+			return;
+		if (start == end)
+			return;
+		int pivot = arr[end];
+		int indexMax = end;
+		// find first element bigger than the pivot
+		for (int i = start; i < end; i++) {
+			int current = arr[i];
+			if (current > pivot) {
+				indexMax = i;
+				break;
+			}
+		}
+		for (int i = indexMax + 1; i <= end - 1; i++) {
+			int current = arr[i];
+			if (current <= pivot) {
+				swap(i, indexMax, arr);
+				indexMax++;
+			}
+		}
+		// swap pivot with indexMax
+		swap(end, indexMax, arr);
+		// sort by pivot
+		quickSortEx(arr, start, indexMax - 1);
+		quickSortEx(arr, indexMax + 1, end);
+	}
+
+	// O(nlogn) complexity
+	// O(n) space for merging
+	// divide-and-conquer approach
+	public static int[] mergeSortEx(int[] arr, int start, int end) {
+		if (start > end) {
+			return new int[] {};
+		}
+		if (start == end) {
+			return new int[] { arr[start] };
+		}
+		int middle = (end - start) / 2 + start;
+		int[] left = mergeSort(arr, start, middle);
+		int[] right = mergeSort(arr, middle + 1, end);
+		return mergeEx(left, right);
+	}
+
+	public static int[] mergeEx(int[] left, int[] right) {
+		if (left.length == 0)
+			return right;
+		if (right.length == 0)
+			return left;
+		int[] copyArr = new int[left.length + right.length];
+		int rightPointer = 0;
+		int leftPointer = 0;
+		int currentPointer = 0;
+		while (rightPointer < right.length && leftPointer < left.length) {
+			if (right[rightPointer] < left[leftPointer]) {
+				copyArr[currentPointer] = right[rightPointer];
+				rightPointer++;
+			} else {
+				copyArr[currentPointer] = left[leftPointer];
+				leftPointer++;
+			}
+			currentPointer++;
+		}
+		// copy the remaining part of left
+		while (leftPointer < left.length) {
+			copyArr[currentPointer] = left[leftPointer];
+			leftPointer++;
+			currentPointer++;
+		} 
+		while (rightPointer < right.length) {
+			copyArr[currentPointer] = right[rightPointer];
+			currentPointer++;
+			rightPointer++;
+		}
+		return copyArr;
+	}
+
+	public static void main(String[] args) {
+		int[] arr = new int[] { 1, 2, 4, 5, 7, 13, 2};
+		arr = countingSort(arr, 13);
+		for (int i = 2; i <= 10; i++) {
+			System.out.println(i % 7);
+		}
+	}
+
 }
