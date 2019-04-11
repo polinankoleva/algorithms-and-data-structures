@@ -5,6 +5,7 @@ package com.data.structures;
  * Polina Koleva, 02.08.2016.
  */
 
+import com.data.structures.heap.MinHeap;
 import com.data.structures.list.CustomLinkedList;
 import com.data.structures.list.Node;
 import com.data.structures.simple.StaticDeque;
@@ -44,12 +45,18 @@ public class MainExecutionPoint {
 		// testBinarySearchTree();
 
 		// testing custom linked list reverse method
-		CustomLinkedList list = new CustomLinkedList();
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		reverse(list.head);
-		System.out.println(list);
+//		CustomLinkedList list = new CustomLinkedList();
+//		list.add(1);
+//		list.add(2);
+//		list.add(3);
+//		reverse(list.head);
+//		System.out.println(list);
+		int[] arr = new int[] {3, 5, 18, 2, - 1, 19};
+		MinHeap minHeap = new MinHeap(arr);
+		minHeap.heapSort();
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i]);
+		}
 	}
 
 	// TODO move to tests

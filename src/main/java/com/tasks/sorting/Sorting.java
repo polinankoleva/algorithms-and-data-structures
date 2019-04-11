@@ -5,6 +5,8 @@
  */
 package com.tasks.sorting;
 
+import com.data.structures.heap.MinHeap;
+
 /**
  * Util class for different sorting algorithms.
  * 
@@ -185,8 +187,9 @@ public class Sorting {
 	}
 
 	// TODO implement when heap is implemented
-	public static int[] heapSort() {
-		return null;
+	public static int[] heapSortDesc(int[] arr) {
+		MinHeap minHeap = new MinHeap(arr);
+		return minHeap.heapSort();
 	}
 
 	// search for min element and set it on the first position in the unsorted
