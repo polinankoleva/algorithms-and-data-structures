@@ -1,5 +1,7 @@
 package com.tasks.dp;
 
+import java.util.Stack;
+
 /**
  * you have 3 towers and N disks of different sizes which can slide onto any
  * tower. The puzzle starts with disks sorted in ASC order of size from top to
@@ -13,5 +15,45 @@ package com.tasks.dp;
  *
  */
 public class TowerOfHanoi {
+	
+	public static Stack<Integer> towersOfHanoi(int disks) {
+		Stack<Integer> x = new Stack<>();
+		for (int i = disks; i > 0; i--) {
+			x.push(i);
+		}
+		Stack<Integer> y = new Stack<>();
+		Stack<Integer> z = new Stack<>();
+		towersOfHanoi(x.size(), x, y, z);
+		return z;
+	}
+	
+	// move all disks from x to z following the rules
+	public static void towersOfHanoi(int disks, Stack<Integer> x, Stack<Integer> y , Stack<Integer> z) {
+		// base cases
+		if(disks <= 0) return;
+		if(disks == 1) {
+			z.push(x.pop());
+			return;
+		}
+		if(disks == 2) {
+			y.push(x.pop());
+			z.push(x.pop());
+			z.push(y.pop());
+			return;
+		}
+		// recursive calls
+		// move the first N-1 elements to the second stack y
+		towersOfHanoi(disks - 1, x, z, y);
+		//move the Nth element from x to z
+		z.push(x.pop());
+		// move back the first N-1 to the z stack
+		towersOfHanoi(disks - 1, y, x, z);
+	}
 
+	public static void main(String[] args) {
+		Stack<Integer> z = towersOfHanoi(10);
+		while(!z.isEmpty()) {
+			System.out.println(z.pop());
+		}
+	}
 }

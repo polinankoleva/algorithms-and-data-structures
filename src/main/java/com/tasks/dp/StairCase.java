@@ -7,7 +7,7 @@ package com.tasks.dp;
  * 
  * For example, if N is 4, then there are 5 unique way
  * 
- * @author Polina
+ * @author Polina Koleva
  *
  */
 public class StairCase {
