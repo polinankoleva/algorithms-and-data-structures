@@ -45,9 +45,30 @@ public class MinimumRoundsInCasino {
 		return round;
 	}
 
+	public static int solutionGreedy(int N, int K) {
+		int rounds = 0;
+		while (N > 2 && K > 0) {
+			System.out.println(N);
+			if(N%2 == 0) {
+				K--;
+				N = N/2;
+			} else {
+				N--;
+			}
+			rounds++;
+		}
+		System.out.println("R:" +rounds);
+		System.out.println("N:" +N);
+		rounds += (N-1);
+		return rounds;
+	}
+
 	public static void main(String[] args) {
-		System.out.println(solutionDP(2147483647, 1000));
+//		System.out.println(solutionDP(2147483647, 1000));
+//		System.out.println(solutionGreedy(2147483647, 1000));
 		System.out.println(solutionDP(18, 2));
-		System.out.println(solutionDP(10, 10));
+		System.out.println(solutionGreedy(18, 2));
+//		System.out.println(solutionDP(10, 2));
+//		System.out.println(solutionGreedy(10, 2));
 	}
 }

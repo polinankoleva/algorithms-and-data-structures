@@ -1,6 +1,5 @@
 package com.data.structures.heap;
 
-import org.apache.http.Header;
 
 /**
  * Implementation of min heap (Priority Queue). Min-Heap property -> the key of

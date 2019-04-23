@@ -13,7 +13,6 @@ public class MaxNumberOfSquareRoots {
 	public static int solution(int A, int B) {
 		int maxSquareRoots = 0;
 		for (int i = A; i <= B; i++) {
-			// System.out.println(i);
 			int currentSRCount = 0;
 			int currentNumber = i;
 			while (true) {
