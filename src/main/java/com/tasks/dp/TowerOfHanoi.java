@@ -23,7 +23,7 @@ public class TowerOfHanoi {
 		}
 		Stack<Integer> y = new Stack<>();
 		Stack<Integer> z = new Stack<>();
-		towersOfHanoi(x.size(), x, y, z);
+		towersOfHanoiSimple(x.size(), x, y, z);
 		return z;
 	}
 	
@@ -49,7 +49,22 @@ public class TowerOfHanoi {
 		// move back the first N-1 to the z stack
 		towersOfHanoi(disks - 1, y, x, z);
 	}
-
+	
+	// remove the base cases when disks are 1 and 2
+	public static void towersOfHanoiSimple(int disks, Stack<Integer> x, Stack<Integer> y , Stack<Integer> z) {
+		if(disks == 0) return;
+		towersOfHanoiSimple(disks-1, x, z, y);
+		System.out.println("Element " + x.peek() + " moved from pile: " + x +" to pile: " + z);
+		z.push(x.pop());
+		towersOfHanoiSimple(disks-1, y, x, z);
+	}
+	public static void towersOfHanoiWithoutRecursion(int disks, Stack<Integer> x, Stack<Integer> y , Stack<Integer> z) {
+		if(disks == 0) return;
+		towersOfHanoiSimple(disks-1, x, z, y);
+		System.out.println("Element " + x.peek() + " moved from pile: " + x +" to pile: " + z);
+		z.push(x.pop());
+		towersOfHanoiSimple(disks-1, y, x, z);
+	}
 	public static void main(String[] args) {
 		Stack<Integer> z = towersOfHanoi(10);
 		while(!z.isEmpty()) {
