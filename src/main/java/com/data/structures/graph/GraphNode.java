@@ -12,7 +12,10 @@ public class GraphNode {
 		// initial state
 		UNVISITED;
 	}
-
+	public GraphNode() {
+		this.adj = new ArrayList<GraphNode>();
+	}
+	
 	public GraphNode(int index) {
 		this.index = index;
 		this.adj = new ArrayList<GraphNode>();
