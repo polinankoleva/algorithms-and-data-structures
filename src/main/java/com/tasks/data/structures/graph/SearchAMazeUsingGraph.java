@@ -2,15 +2,14 @@ package com.tasks.data.structures.graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 
-import com.tasks.data.structures.graph.Cell.State;
+import com.tasks.data.structures.graph.GCell.GState;
 
 public class SearchAMazeUsingGraph {
 
-	public List<Cell> findPath(boolean[][] mazeArr, int startRow, int startCol, int endRow, int endCol) {
-		ArrayList<Cell> path = new ArrayList<Cell>();
+	public List<GCell> findPath(boolean[][] mazeArr, int startRow, int startCol, int endRow, int endCol) {
+		ArrayList<GCell> path = new ArrayList<GCell>();
 		// validation
 		if (startRow < 0 || startRow >= mazeArr.length || endRow < 0 || endRow >= mazeArr.length || endRow < startRow) {
 			return null;
@@ -20,12 +19,12 @@ public class SearchAMazeUsingGraph {
 			return null;
 		}
 		Maze maze = buildMaze(mazeArr);
-		Cell start = getCell(startRow, startCol, maze.cells);
+		GCell start = getCell(startRow, startCol, maze.cells);
 		if (start == null) {
 			// invalid start
 			return null;
 		}
-		Cell end = getCell(endRow, endCol, maze.cells);
+		GCell end = getCell(endRow, endCol, maze.cells);
 		if (end == null) {
 			// invalid end
 			return null;
@@ -34,16 +33,16 @@ public class SearchAMazeUsingGraph {
 
 	}
 
-	public List<Cell> findPath(Maze g, Cell current, Cell end, List<Cell> path) {
+	public List<GCell> findPath(Maze g, GCell current, GCell end, List<GCell> path) {
 		// apply DFS
-		current.state = State.VISITED;
+		current.state = GState.VISITED;
 		path.add(current);
 		if(current == end) {
 			return path;
 		}
-		for(Cell child : current.adjacentCells) {
-			if(child.state == State.UNVISITED) {
-				List<Cell> currentPath = findPath(g, child, end, path);
+		for(GCell child : current.adjacentCells) {
+			if(child.state == GState.UNVISITED) {
+				List<GCell> currentPath = findPath(g, child, end, path);
 				if(currentPath != null) {
 					return path;
 				}
@@ -54,33 +53,33 @@ public class SearchAMazeUsingGraph {
 	}
 
 	public Maze buildMaze(boolean[][] maze) {
-		HashMap<String, Cell> cells = new HashMap<>();
+		HashMap<String, GCell> cells = new HashMap<>();
 		// iterate over the maze
 		for (int row = 0; row < maze.length; row++) {
 			for (int col = 0; col < maze[0].length; col++) {
 				boolean nodeValue = maze[row][col];
 				// only it it is a white cell in the matrix
 				if (nodeValue) {
-					Cell current = createCell(row, col, cells);
+					GCell current = createCell(row, col, cells);
 					// get adjacent nodes for this node
 					// get up
 					if (row + 1 >= 0 && row - 1 < maze.length && maze[row - 1][col]) {
-						Cell up = createCell(row - 1, col, cells);
+						GCell up = createCell(row - 1, col, cells);
 						current.adjacentCells.add(up);
 					}
 					// get down
 					if (row + 1 >= 0 && row + 1 < maze.length && maze[row + 1][col]) {
-						Cell down = createCell(row + 1, col, cells);
+						GCell down = createCell(row + 1, col, cells);
 						current.adjacentCells.add(down);
 					}
 					// get right
 					if (col + 1 >= 0 && col + 1 < maze[0].length && maze[row][col + 1]) {
-						Cell right = createCell(row, col + 1, cells);
+						GCell right = createCell(row, col + 1, cells);
 						current.adjacentCells.add(right);
 					}
 					// get left
 					if (col - 1 >= 0 && col - 1 < maze[0].length && maze[row][col - 1]) {
-						Cell left = createCell(row, col - 1, cells);
+						GCell left = createCell(row, col - 1, cells);
 						current.adjacentCells.add(left);
 					}
 				}
@@ -90,8 +89,8 @@ public class SearchAMazeUsingGraph {
 		return g;
 	}
 
-	public Cell getCell(int row, int col, HashMap<String, Cell> cells) {
-		Cell current = null;
+	public GCell getCell(int row, int col, HashMap<String, GCell> cells) {
+		GCell current = null;
 		String cellKey = row + " " + col;
 		if (cells.containsKey(cellKey)) {
 			current = cells.get(cellKey);
@@ -99,13 +98,13 @@ public class SearchAMazeUsingGraph {
 		return current;
 	}
 
-	public Cell createCell(int row, int col, HashMap<String, Cell> cells) {
-		Cell current = null;
+	public GCell createCell(int row, int col, HashMap<String, GCell> cells) {
+		GCell current = null;
 		String cellKey = row + " " + col;
 		if (cells.containsKey(cellKey)) {
 			current = cells.get(cellKey);
 		} else {
-			current = new Cell(row, col);
+			current = new GCell(row, col);
 			cells.put(cellKey, current);
 		}
 		return current;
@@ -113,26 +112,26 @@ public class SearchAMazeUsingGraph {
 }
 
 class Maze {
-	HashMap<String, Cell> cells;
+	HashMap<String, GCell> cells;
 
-	public Maze(HashMap<String, Cell> cells) {
+	public Maze(HashMap<String, GCell> cells) {
 		this.cells = cells;
 	}
 }
 
-class Cell {
+class GCell {
 	int col;
 	int row;
-	List<Cell> adjacentCells;
-	State state;
+	List<GCell> adjacentCells;
+	GState state;
 	
-	public enum State {
+	public enum GState {
 		VISITED, VISITING,
 		// initial state
 		UNVISITED;
 	}
-	public Cell(int row, int col) {
-		this.state = State.UNVISITED;
+	public GCell(int row, int col) {
+		this.state = GState.UNVISITED;
 		this.adjacentCells = new ArrayList<>();
 		this.row = row;
 		this.col = col;
