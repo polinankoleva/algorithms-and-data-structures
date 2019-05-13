@@ -13,6 +13,22 @@ public class BSTValidation {
 		return ifNodeValid(root, 0, Integer.MAX_VALUE);
 	}
 
+	public boolean isBST(BTNode root, int min, int max) {
+		if (root == null)
+			return true;
+		if (root.left != null) {
+			if (root.left.key > root.key || root.left.key < min || root.left.key > max) {
+				return false;
+			}
+		}
+		if (root.right != null) {
+			if (root.right.key < root.key || root.right.key < min || root.right.key > max) {
+				return false;
+			}
+		}
+		return isBST(root.left, min, root.key) && isBST(root.right, root.key, max);
+	}
+
 	boolean ifNodeValid(BTNode root, int smaller, int bigger) {
 		if (root == null)
 			return true;
