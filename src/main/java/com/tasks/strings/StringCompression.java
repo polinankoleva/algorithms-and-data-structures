@@ -14,7 +14,7 @@ public class StringCompression {
 				currentCount++;
 				sb.append(current);
 				sb.append(currentCount);
-				// add to the bilder
+				// add to the builder
 				currentCount = 0;
 			}
 		}
@@ -29,10 +29,41 @@ public class StringCompression {
 		}
 	}
 
+	public static String compressionRecursive(String s) {
+		StringBuilder sb = new StringBuilder();
+		compressionRecursive(sb, 0, s.toCharArray());
+		return sb.toString();
+	}
+
+	public static void compressionRecursive(StringBuilder result, int index, char[] s) {
+		if (index >= s.length)
+			return;
+		if (index + 1 == s.length) {
+			result.append(s[index]);
+			return;
+		}
+		int count = 1;
+		char current = s[index];
+		int nextIndex = index + 1;
+		char next = s[nextIndex];
+		while (nextIndex < s.length && current == next) {
+			count++;
+			nextIndex++;
+			if (nextIndex < s.length) {
+				next = s[nextIndex];
+			}
+		}
+		result.append(current);
+		if (count != 1) {
+			result.append(count);
+		}
+		compressionRecursive(result, nextIndex, s);
+	}
+
 	public static void main(String[] args) {
-		System.out.println(compression("abc"));
-		System.out.println(compression("aabc"));
-		System.out.println(compression("abcabc"));
-		System.out.println(compression("aabcccccaaa"));
+		 System.out.println(compressionRecursive("abc"));
+		 System.out.println(compressionRecursive("aabc"));
+		 System.out.println(compressionRecursive("abcabc"));
+		System.out.println(compressionRecursive("aabcccccaaa"));
 	}
 }
