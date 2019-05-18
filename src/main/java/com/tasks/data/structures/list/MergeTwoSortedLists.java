@@ -46,14 +46,14 @@ public class MergeTwoSortedLists {
 	}
 	
 	public static void main(String[] args) {
-		ListNode<Integer> firstHead = new ListNode(3);
-		ListNode<Integer> firstNext = new ListNode(11);
+		ListNode<Integer> firstHead = new ListNode<>(3);
+		ListNode<Integer> firstNext = new ListNode<Integer>(11);
 		firstHead.next = firstNext;
 		
-		ListNode<Integer> secondHead = new ListNode(2);
-		ListNode<Integer> secondNext = new ListNode(5);
+		ListNode<Integer> secondHead = new ListNode<>(2);
+		ListNode<Integer> secondNext = new ListNode<>(5);
 		secondHead.next = secondNext;
-		ListNode<Integer> secondNextNext = new ListNode(7);
+		ListNode<Integer> secondNextNext = new ListNode<>(7);
 		secondNext.next = secondNextNext;
 		
 		ListNode<Integer> resultHead = merge(firstHead, secondHead);
@@ -72,5 +72,4 @@ class ListNode<T> {
 	public ListNode(T value) {
 		this.value = value;
 	}
-
 }
