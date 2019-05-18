@@ -33,26 +33,20 @@ public class MergeTwoSortedLists {
 			}
 		}
 		// check l1 for more nodes
-		while (l1 != null) {
+		if (l1 != null) {
 			// append to the result list
 			lastInserted.next = l1;
-			lastInserted = l1;
-			// advance the pointer in the list
-			l1 = l1.next;
 		}
 		// check l2 for more nodes
-		while (l2 != null) {
+		if (l2 != null) {
 			// append to the result list
 			lastInserted.next = l2;
-			lastInserted = l2;
-			// advance the pointer in the list
-			l2 = l2.next;
 		}
 		return resultHead;
 	}
 	
 	public static void main(String[] args) {
-		ListNode<Integer> firstHead = new ListNode(1);
+		ListNode<Integer> firstHead = new ListNode(3);
 		ListNode<Integer> firstNext = new ListNode(11);
 		firstHead.next = firstNext;
 		
@@ -62,7 +56,7 @@ public class MergeTwoSortedLists {
 		ListNode<Integer> secondNextNext = new ListNode(7);
 		secondNext.next = secondNextNext;
 		
-		ListNode<Integer> resultHead = merge(firstHead, null);
+		ListNode<Integer> resultHead = merge(firstHead, secondHead);
 		while(resultHead != null) {
 			System.out.println(resultHead.value);
 			resultHead = resultHead.next;
