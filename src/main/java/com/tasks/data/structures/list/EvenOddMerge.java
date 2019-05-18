@@ -2,8 +2,10 @@ package com.tasks.data.structures.list;
 
 /**
  * Consider a singly linked list whose nodes are numbered starting at 0. Define
- * the evenodd merge of the list to be the list consisting of the even-numbered
+ * the even-odd merge of the list to be the list consisting of the even-numbered
  * nodes followed by the odd-numbered nodes.
+ * 
+ * Task 8.10, EPI book
  * 
  * @author Polina Koleva
  *
