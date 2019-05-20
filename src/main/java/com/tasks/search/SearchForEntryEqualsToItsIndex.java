@@ -1,4 +1,4 @@
-package com.tasks.sorting;
+package com.tasks.search;
 
 /**
  * Design an efficient algorithm that takes a sorted array of distinct integers,
@@ -37,5 +37,6 @@ public class SearchForEntryEqualsToItsIndex {
 		System.out.println(search(arr));
 		arr = new int[] {-2, 0, 2, 3, 6, 7, 9};
 		System.out.println(search(arr));
+		System.out.println((int) Math.sqrt(16));
 	}
 }

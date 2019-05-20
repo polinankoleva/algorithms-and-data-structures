@@ -1,4 +1,4 @@
-package com.tasks.sorting;
+package com.tasks.search;
 
 /**
  * Write a method that takes a sorted array and a key and returns the index of
