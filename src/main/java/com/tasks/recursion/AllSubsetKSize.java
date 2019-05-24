@@ -2,7 +2,13 @@ package com.tasks.recursion;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
+/**
+ * Generate all subsets of size k.
+ * 
+ * Task 16.5, EPI book
+ * @author Polina Koleva
+ *
+ */
 public class AllSubsetKSize {
 
 	public static void allSubsetsKSize(int k, int index, List<List<Integer>> result, List<Integer> numbers) {
